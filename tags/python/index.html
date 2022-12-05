@@ -3,7 +3,7 @@
   <head>
      
     <meta charset="UTF-8">
-    <title>About me - onepiece</title>
+    <title>python - onepiece</title>
     <link rel="shortcut icon" href="/static/img/icon.png">
     <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
     
@@ -15,7 +15,7 @@
 
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
     <meta property="og:site_name" content="onepiece">
-    <meta property="og:title" content="About me"/>
+    <meta property="og:title" content=""/>
     
     <style>body:before{ content: ''; background-image: url(https://github.com/junliangl/hexo-back/blob/master/images/images/%E6%9D%8F%E6%9E%9D.jpg?raw=true) }</style>
     
@@ -52,53 +52,37 @@
 
     <main>
     <div class="wrap min">
-        <section class="page-title">
-            <h2>About me</h2>
+        <section class="home-title">
+            
+            <h1>“python”</h1>
         </section>
-        <article class="page-content">
-        
-            <p>Python 虚拟环境 venv 创建</p>
-<ul>
-<li>python 项目为了类似 docker 一样隔离提供 venv 虚拟环境</li>
-<li>使用方法<ul>
-<li>python -m venv【params】venvpath</li>
-<li>venv 参数如下</li>
-<li><img src="/./images/python/venv/1.png"></li>
-<li>一般来说只需要<ul>
-<li>python -m venv –upgrade-deps venvpath</li>
-<li>除非需要之前的一些 site-package 否则不加 –system-site-package</li>
-<li>建议加上 –upgrade-deps<ul>
-<li>这样无需手动更新 pip 造成无权限问题而导致原来的 pip 被删除</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>安装好以后可以打开 Scripts&#x2F; 目录下的 activate.bat 批处理文件进入虚拟环境<ul>
-<li>activate</li>
-<li>[Image: image.png]</li>
-<li>也可以在 git-bash 里用 source 命令执行<ul>
-<li>[Image: image.png]</li>
-</ul>
-</li>
-<li>可以用 pip list 查看包情况判断是否进入 python 虚拟环境</li>
-</ul>
-</li>
-<li>如何退出<ul>
-<li>同样在虚环境里执行 deactivate.bat <ul>
-<li>[Image: image.png]</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>pycharm 新建项目如何使用虚拟环境<ul>
-<li>只需新建项目里配置虚拟环境解释器路径</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+        <section class="home-posts">
+    
+    <div class="post-item">
+        <h2>
+            <a href="/2022/12/05/python/pytest/">Python pytest 模块单元测试</a>
+        </h2>
+    
+        <p>一、简单入门：
+准备 requirements.txt 写入以下插件和包
+  123456`pytest``pytest-html``pytest-xdist``pytest-ordering`...</p>
+    
+        <div class="post-meta">
+            <time class="date">2022.12.05</time>
+            
+                <span class="category"><a class="category-link" href="/categories/python/">python</a></span>
+            
+            
+                <span class="tags"><a class="-none-link" href="/tags/python/" rel="tag">python</a></span>
+            
+        </div>
+    </div>
+    
+</section>
 
-        </article>
+        <section class="page-navigator">
+            <span class="page-number current">1</span>
+        </section>
     </div>
 </main>
 
