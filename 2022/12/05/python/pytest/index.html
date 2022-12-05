@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     
+    <meta charset="UTF-8">
+    <title>Python pytest 模块单元测试 - onepiece</title>
+    <link rel="shortcut icon" href="/junliangl/junliangl.github.io/static/img/icon.png">
+    <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
+    
+<link rel="stylesheet" href="/junliangl/junliangl.github.io/static/kico.css">
+<link rel="stylesheet" href="/junliangl/junliangl.github.io/static/hingle.css">
+
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
+    <meta property="og:site_name" content="onepiece">
+    <meta property="og:title" content="Python pytest 模块单元测试"/>
+    
+    <style>body:before{ content: ''; background-image: url(https://github.com/junliangl/hexo-back/blob/master/images/images/%E6%9D%8F%E6%9E%9D.jpg?raw=true) }</style>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body class="dark-theme">
+    <header>
+    <div class="head-title">
+        <h4>onepiece</h4>
+    </div>
+    <div class="head-action">
+        <div class="toggle-btn"></div>
+        <div class="light-btn"></div>
+        <div class="search-btn"></div>
+    </div>
+    <form class="head-search" method="post">
+        <input type="text" name="s" placeholder="暂时不支持搜索哦">
+    </form>
+    <nav class="head-menu">
+        <a href="/junliangl/junliangl.github.io/">首页</a>
+        <div class="has-child">
+            <a>分类</a>
+            <div class="sub-menu">
+				<a href="/junliangl/junliangl.github.io/categories/python/">python</a>
+				<a href="/junliangl/junliangl.github.io/categories/linux">linux</a>
+				<a href="/junliangl/junliangl.github.io/categories/test-theory">测试理论</a>
+            </div>
+        </div>
+        
+            <a href="/junliangl/junliangl.github.io/about">关于我</a>
+        
+    </nav>
+</header>
+
+    <main>
+    <div class="wrap min">
+        <section class="post-title">
+            <h2>Python pytest 模块单元测试</h2>
+            <div class="post-meta">
+                <time class="date">2022.12.05</time>
+            
+                <span class="category"><a class="category-link" href="/junliangl/junliangl.github.io/categories/python/">python</a></span>
+            
+            </div>
+        </section>
+        <article class="post-content">
+        
+            <h1 id="一、简单入门："><a href="#一、简单入门：" class="headerlink" title="一、简单入门："></a>一、简单入门：</h1><ul>
+<li><p>准备 requirements.txt 写入以下插件和包</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">`pytest`</span><br><span class="line">`pytest-html`</span><br><span class="line">`pytest-xdist`</span><br><span class="line">`pytest-ordering`</span><br><span class="line">`pytest-rerunfailures`</span><br><span class="line">`allure-pytest`</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装插件</p>
+<ul>
+<li><code>pip install -r requirements.txt</code></li>
+</ul>
+</li>
+<li><p>编写一个简单的测试脚本 test.py</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestCase</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_number</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">assert</span> <span class="literal">True</span> <span class="keyword">is</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行 pytest </p>
+<ul>
+<li><code>pytest -vs test.py</code></li>
+</ul>
+</li>
+<li><p>运行结果如下</p>
+<ul>
+<li><img src="/junliangl/junliangl.github.io/./images/python/pytest/1.png"></li>
+</ul>
+</li>
+</ul>
+<h1 id="二、详细讲解"><a href="#二、详细讲解" class="headerlink" title="二、详细讲解"></a>二、详细讲解</h1><ul>
+<li><p>运行</p>
+<ul>
+<li><p>python test.py 脚本下 写入 main 方法调用 pytest.main() 去执行</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    pytest.main([<span class="string">&#x27;-s&#x27;</span>, <span class="string">&#x27;./test_number.py&#x27;</span>])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>终端模式下也可以通过 pytest 命令执行</p>
+<ul>
+<li><code>pytest -vs test.py</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>参数解析</p>
+<ul>
+<li><p>默认不加参数即运行</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    pytest.main()</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>pytest test.py</code></li>
+</ul>
+</li>
+<li><p>以上默认运行以下测试用例<br>  * 名字带有 test 开头或 test 结尾的 python 模块<br>  * 名字以 Test 开头且不能含有 <strong>init</strong> 方法的类<br>  * 名字以 test 开头的方法</p>
+</li>
+<li><p>常用的参数解释</p>
+<ul>
+<li>-s<ul>
+<li>打印输出调试信息</li>
+</ul>
+</li>
+<li>-v<ul>
+<li>输出更详细的信息</li>
+</ul>
+</li>
+<li>-n number (输入几个线程)<ul>
+<li>多线程或分布式运行</li>
+</ul>
+</li>
+<li>–reruns number (输入重跑次数)<ul>
+<li>运行用例失败重跑</li>
+</ul>
+</li>
+<li>-x<ul>
+<li>只要一个用例失败那么停止测试</li>
+</ul>
+</li>
+<li>–maxfail&#x3D;number<ul>
+<li>出现 number 次用例失败就停止测试</li>
+</ul>
+</li>
+<li>-k string<ul>
+<li>根据测试用例的部分字符串(string)指定</li>
+</ul>
+</li>
+<li>-rA<ul>
+<li>测试结果的简单统计</li>
+</ul>
+</li>
+<li>-m<ul>
+<li>指定被 <code>pytest.mark</code> 标记过的方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>编辑 pytest.ini 配置文件达到命令行运行的效果。配置好后 只需要 pytest 即可一键运行</p>
+<ul>
+<li>系统根目录下创建 pytest.ini 配置文件<ul>
+<li><code>touch pytest.ini</code></li>
+</ul>
+</li>
+<li>修改该文件编码格式为 ANSI 格式，创建好需要更改编码格式</li>
+<li>作用<ul>
+<li>改变 pytest 的默认行为，无需命令行输出冗余命令</li>
+</ul>
+</li>
+<li>运行规则<ul>
+<li>pytest 自动读取 pytest.ini 配置文件并按照配置文件规则执行</li>
+</ul>
+</li>
+<li>一些具体参数如下 pytest.ini  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">`[pytest]`</span><br><span class="line">`#encoding = ANSI`</span><br><span class="line"></span><br><span class="line">`#命令行参数，用空格分隔`</span><br><span class="line">`addopts = -vs` </span><br><span class="line">`#测试用例的文件路径`</span><br><span class="line">`testpaths = .`</span><br><span class="line">`#配置测试搜素的 python 文件名称`</span><br><span class="line">`python_files = test*.py</span><br><span class="line">#配置测试搜索的测试类名</span><br><span class="line">python_classes = Test*`</span><br><span class="line">`#配置测试搜索的测试函数名`</span><br><span class="line">`python_functions = test*`</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>pytest 装饰器解释</p>
+<ul>
+<li>有时候我们希望某个方法有专门的作用和不同的作用那么就可以采用 pytest装饰器修饰<ul>
+<li><p><code>@pytest.mark.yourname</code></p>
+<ul>
+<li>用该装饰器装饰的方法可以用 <code>pytest -m &quot;yourname&quot;</code>进行操作</li>
+<li>多个被 mark 过的方法 可以使用逻辑运算符and or not进行连接<ul>
+<li>如 <code>pytest -m &quot;first or second&quot;</code><ul>
+<li>表示 first 方法 和 second 方法都被执行</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>@pytest.mark.skip(reason=yourreasons)</code></p>
+<ul>
+<li>用该装饰器装饰的方法会被 pytest 无条件跳过</li>
+</ul>
+</li>
+<li><p><code>@pytest.mark.skipif(condition=yourcondition, reason=yourreasons)</code></p>
+<ul>
+<li>用该装饰器装饰的方法会被 pytest 判定:如果 condition 表达式为 True，则跳过该测试，反之则不跳过</li>
+</ul>
+</li>
+<li><p><code>@pytest.mark.run(order=number)</code></p>
+<ul>
+<li>用该装饰器装饰的方法会被 pytest 识别并依照 number 的值的顺序跑测试用例</li>
+</ul>
+</li>
+<li><p><code>@pytest.fixture(scope=scope, params=params, autouse=bool, ids=ids, name=name)</code></p>
+<ul>
+<li><p>用fixtrue标记的方法一般用于前置和后置处理，类似 setup &amp; teardown 的功能</p>
+</li>
+<li><p>其中 scope 参数有以下四个值:</p>
+<ul>
+<li>“function”<ul>
+<li>代表着作用于 方法</li>
+</ul>
+</li>
+<li>“class”<ul>
+<li>代表着作用于 类</li>
+</ul>
+</li>
+<li>“modules”<ul>
+<li>代表着作用于一个 python 文件</li>
+</ul>
+</li>
+<li>“sessions”<ul>
+<li>代表着作用于整个 pytest 测试流程</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>其中 autouse 参数有 True 和 False 两个 bool 值</p>
+<ul>
+<li>如果 autouse&#x3D;True，那么默认测试用例方法都会执行fixture，前提是在自己的scope里</li>
+</ul>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@pytest.fixture(<span class="params">scope=<span class="string">&quot;function&quot;</span>, autouse=<span class="literal">True</span>, params=[(<span class="params"><span class="string">&quot;这是&quot;</span>, <span class="string">&quot;first&quot;</span></span>), (<span class="params"><span class="string">&quot;这是&quot;</span>, <span class="string">&quot;second&quot;</span></span>)]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sayhello</span>(<span class="params">request</span>):</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;测试开始&quot;</span>)</span><br><span class="line">    <span class="keyword">yield</span> request.param</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;测试结束&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestCase</span>:</span><br><span class="line"></span><br><span class="line"><span class="meta">    @pytest.mark.run(<span class="params">order=<span class="number">3</span></span>)</span></span><br><span class="line">    <span class="comment"># @pytest.mark.first</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_number</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>如果 autouse&#x3D;Flase，那么测试用例方法参数需要添加 fixture 修饰的方法名字</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@pytest.fixture(<span class="params">scope=<span class="string">&quot;function&quot;</span>, autouse=<span class="literal">False</span>, params=[(<span class="params"><span class="string">&quot;这是&quot;</span>, <span class="string">&quot;first&quot;</span></span>), (<span class="params"><span class="string">&quot;这是&quot;</span>, <span class="string">&quot;second&quot;</span></span>)]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sayhello</span>(<span class="params">request</span>):</span><br><span class="line"></span><br><span class="line">​    <span class="built_in">print</span>(<span class="string">&quot;测试开始&quot;</span>)</span><br><span class="line">​    <span class="keyword">yield</span> request.param</span><br><span class="line">​    <span class="built_in">print</span>(<span class="string">&quot;测试结束&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestCase</span>:</span><br><span class="line"></span><br><span class="line">​    @pytest.mark.run(order=<span class="number">3</span>)</span><br><span class="line">​    \<span class="comment"># @pytest.mark.first</span></span><br><span class="line">​    <span class="keyword">def</span> <span class="title function_">test_number</span>(<span class="params">self, sayhello</span>):</span><br><span class="line">​        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>其中 params 参数控制着传参</p>
+<ul>
+<li><code>params=[(&quot;这是&quot;, &quot;first&quot;), (&quot;这是&quot;, &quot;second&quot;)]</code></li>
+<li>其中 params 可以等于一个 列表或字典，或者 字典列表与元祖列表</li>
+<li>如果要获得 params 的参数，则fxiture修饰的方法需要添加固定的 request 参数，且返回request.param 用于测试方法接受</li>
+<li>如果测试方法要接收 params 参数，即时autouse&#x3D;True，也要在测试方法参数上添加需要的fixture方法名<ul>
+<li>未加方法名结果<ul>
+<li><img src="/junliangl/junliangl.github.io/./images/python/pytest/2.png"></li>
+</ul>
+</li>
+<li>添加方法名结果<ul>
+<li><img src="/junliangl/junliangl.github.io/./images/python/pytest/3.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>使用方法</p>
+<ul>
+<li><p>借助python yeild 生成器控制前置和后置输出</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@pytest.fixture(<span class="params">scope=<span class="string">&quot;function&quot;</span>, autouse=<span class="literal">True</span>, params=[(<span class="params"><span class="string">&quot;这是&quot;</span>, <span class="string">&quot;first&quot;</span></span>), (<span class="params"><span class="string">&quot;这是&quot;</span>, <span class="string">&quot;second&quot;</span></span>)]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sayhello</span>(<span class="params">request</span>):</span><br><span class="line"></span><br><span class="line">​    <span class="built_in">print</span>(<span class="string">&quot;测试开始&quot;</span>)</span><br><span class="line">​    <span class="keyword">yield</span> request.param</span><br><span class="line">​    <span class="built_in">print</span>(<span class="string">&quot;测试结束&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>实际使用</p>
+<ul>
+<li>一般情况下 pytest 有一个机制:即把 fixture 集中放入一个名叫 conftest.py 的文件下，pytest会自动识别该文件并作出相应的响应</li>
+<li>作用域<ul>
+<li>该文件可以存放在任何目录下</li>
+<li>只对当前目录及当前路径以下的目录下起作用<ul>
+<li><img src="/junliangl/junliangl.github.io/./images/python/pytest/4.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>@pytest.mark.parametrize(argsname，argsvalues)</code></p>
+<ul>
+<li><p>用该装饰器修饰的方法可以进行参数化</p>
+</li>
+<li><p>argsname 代表着参数名，argsvalues代表参数值</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestCase2</span>:</span><br><span class="line"></span><br><span class="line">​    @pytest.mark.parametrize(argnames=<span class="string">&quot;a&quot;</span>, argvalues=[<span class="string">&quot;FIRST&quot;</span>, <span class="string">&quot;SECOND&quot;</span>])</span><br><span class="line">​    <span class="keyword">def</span> <span class="title function_">test_number</span>(<span class="params">self, a: <span class="built_in">list</span></span>):</span><br><span class="line">​        <span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>结果</p>
+<ul>
+<li><img src="/junliangl/junliangl.github.io/./images/python/pytest/5.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </article>
+        <section class="post-near">
+            <ul>
+                
+                    <li>上一篇: <a href="/junliangl/junliangl.github.io/2022/12/05/python/python%E8%BF%90%E7%AE%97%E7%AC%A6/">python 运算符</a></li>
+                
+                
+                    <li>下一篇: <a href="/junliangl/junliangl.github.io/2022/12/05/linux/docker/">docker</a></li>
+                
+            </ul>
+        </section>
+        
+    
+        <section class="post-author">
+        
+            <figure class="author-avatar">
+                <img src="https://github.com/junliangl/hexo-back/blob/master/images/icon/myhead.jpg?raw=true# 作者头像" alt="Junliangl" />
+            </figure>
+        
+            <div class="author-info">
+                <h4>Junliangl</h4>
+                <p>请在这里设置你的作者信息</p>
+            </div>
+        </section>
+    
+    </div>
+</main>
+
+    <footer>
+    <div class="buttons">
+        <a class="to-top" href="#"></a>
+    </div>
+    <div class="wrap min">
+        <section class="widget">
+            <div class="row">
+                <div class="col-m-4">
+                    <h3 class="title-recent">最新文章：</h3>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/junliangl/junliangl.github.io/2022/12/05/python/python%E8%BF%90%E7%AE%97%E7%AC%A6/">python 运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/junliangl/junliangl.github.io/2022/12/05/python/pytest/">Python pytest 模块单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/junliangl/junliangl.github.io/2022/12/05/linux/docker/">docker</a></li><li class="post-list-item"><a class="post-list-link" href="/junliangl/junliangl.github.io/2022/12/05/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/">测试用例设计方法</a></li><li class="post-list-item"><a class="post-list-link" href="/junliangl/junliangl.github.io/2022/12/05/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/%E6%AD%A3%E4%BA%A4%E8%A1%A8%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">正交表工具使用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/junliangl/junliangl.github.io/2022/12/05/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%A8%A1%E5%9E%8B/">软件质量模型</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-date">历史：</h3>
+                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/junliangl/junliangl.github.io/archives/2022/12/">十二月 2022</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-tags">标签云：</h3>
+                    
+                </div>
+            </div>
+        </section>
+        <section class="sub-footer">
+            <p>© 2022 <a href="/junliangl/junliangl.github.io/">onepiece</a>. All Rights Reserved. Theme By <a href="https://github.com/Dreamer-Paul/Hingle" target="_blank" rel="nofollow">Hingle</a>.</p>
+        </section>
+    </div>
+</footer>
+
+
+<script src="/junliangl/junliangl.github.io/static/kico.js"></script>
+<script src="/junliangl/junliangl.github.io/static/hingle.js"></script>
+
+
+<script>var hingle = new Paul_Hingle({"copyright":true,"night":true});</script>
+
+  </body>
+</html>
