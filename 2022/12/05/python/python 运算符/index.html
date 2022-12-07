@@ -76,8 +76,10 @@
 <li><p>标准运算符</p>
 <ul>
 <li><blockquote>
-<p>+ -  *  &#x2F;  &#x2F;&#x2F;</p>
+<p>+ -  *  /  //</p>
 </blockquote>
+</li>
+<li><span id="more"></span>
 </li>
 <li><p>其中为整除运算符，若两者异号，则向下取整</p>
   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    value1 = <span class="number">20</span>/-<span class="number">3</span></span><br><span class="line">    value2 = <span class="number">20</span>//-<span class="number">3</span></span><br><span class="line">    <span class="built_in">print</span>(value1)</span><br><span class="line">    <span class="built_in">print</span>(value2)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
@@ -160,15 +162,15 @@
 </li>
 <li><p>bool 运算符</p>
 <ul>
-<li>python 一切对象都有对应的 bool 值<ul>
+<li><p>python 一切对象都有对应的 bool 值</p>
+<ul>
 <li><img src="/./images/python/operator/7.png"></li>
 </ul>
 </li>
-<li>and ，or，not，in，not in （其中 in， not in 表示是否在序列中）<ul>
+<li><p>and ，or，not，in，not in （其中 in， not in 表示是否在序列中）</p>
+<ul>
 <li><p>其中 and 和 or 拥有短路性。即 a and b a为false，b不再进行。同理 a or b，a为真 b不再进行</p>
-</li>
-<li><p>m &#x3D; [1, 2, 3]</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test1</span>():</span><br><span class="line">    m.clear()</span><br><span class="line">    <span class="built_in">print</span>(m)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test2</span>():</span><br><span class="line">    m.append(<span class="number">1</span>)</span><br><span class="line">    <span class="built_in">print</span>(m)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_bool</span>():</span><br><span class="line">    a = <span class="literal">True</span></span><br><span class="line">    b = <span class="literal">False</span></span><br><span class="line">    <span class="built_in">print</span>(b <span class="keyword">and</span> test1())</span><br><span class="line">    <span class="built_in">print</span>(a <span class="keyword">or</span> test2())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_bool()</span><br></pre></td></tr></table></figure>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">m = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test1</span>():</span><br><span class="line">    m.clear()</span><br><span class="line">    <span class="built_in">print</span>(m)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test2</span>():</span><br><span class="line">    m.append(<span class="number">1</span>)</span><br><span class="line">    <span class="built_in">print</span>(m)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_bool</span>():</span><br><span class="line">    a = <span class="literal">True</span></span><br><span class="line">    b = <span class="literal">False</span></span><br><span class="line">    <span class="built_in">print</span>(b <span class="keyword">and</span> test1())</span><br><span class="line">    <span class="built_in">print</span>(a <span class="keyword">or</span> test2())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_bool()</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>返回</p>
 <ul>
@@ -292,13 +294,17 @@
         <section class="post-near">
             <ul>
                 
-                    <li>上一篇: 看完啦 (つд⊂)</li>
+                    <li>上一篇: <a href="/2022/12/07/python/python%20%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 基本数据类型常用方法</a></li>
                 
                 
                     <li>下一篇: <a href="/2022/12/05/python/pytest/">Python pytest 模块单元测试</a></li>
                 
             </ul>
         </section>
+        
+            <section class="post-tags">
+            <a class="-none-link" href="/tags/python/" rel="tag">python</a>
+            </section>
         
     
         <section class="post-author">
@@ -325,7 +331,7 @@
             <div class="row">
                 <div class="col-m-4">
                     <h3 class="title-recent">最新文章：</h3>
-                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/python/python%E8%BF%90%E7%AE%97%E7%AC%A6/">python 运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/python/pytest/">Python pytest 模块单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/linux/docker/">docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/">测试用例设计方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/%E6%AD%A3%E4%BA%A4%E8%A1%A8%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">正交表工具使用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%A8%A1%E5%9E%8B/">软件质量模型</a></li></ul>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/12/07/python/python%20%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 基本数据类型常用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/python/python%20%E8%BF%90%E7%AE%97%E7%AC%A6/">python 运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/python/pytest/">Python pytest 模块单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/linux/docker/">docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/">测试用例设计方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/%E6%AD%A3%E4%BA%A4%E8%A1%A8%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">正交表工具使用方法</a></li></ul>
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-date">历史：</h3>

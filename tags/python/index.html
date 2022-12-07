@@ -60,12 +60,120 @@
     
     <div class="post-item">
         <h2>
+            <a href="/2022/12/07/python/python%20%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 基本数据类型常用方法</a>
+        </h2>
+    
+        <p>
+参考链接
+
+以下数据类型有些内容会涉及内存驻留机制，请参考
+Python 驻留机制
+
+https://www.cnblogs.com/laizhenghua/articles/12875044.html
+
+
+
+基本数据类型是 python 操作的重点，经常遗忘，在此写下
+
+基本数据类型有 数字类型（int，float，complex），字符串类型（str），列表类型（list）元组（tuple），字典（dict），集合（set）
+
+</p>
+    
+        <div class="post-meta">
+            <time class="date">2022.12.07</time>
+            
+                <span class="category"><a class="category-link" href="/categories/python/">python</a></span>
+            
+            
+                <span class="tags"><a class="-none-link" href="/tags/python/" rel="tag">python</a></span>
+            
+        </div>
+    </div>
+    
+    <div class="post-item">
+        <h2>
+            <a href="/2022/12/05/python/python%20%E8%BF%90%E7%AE%97%E7%AC%A6/">python 运算符</a>
+        </h2>
+    
+        <p>
+python 运算符分为 算术运算符、赋值运算符、布尔运算符、比较运算符、位运算符
+
+算术运算符分为 标准运算符、取余运算符、幂运算符
+
+算术运算符满足以下规则
+
+
+
+
+标准运算符
+
+
++ -  *  /  //
+
+
+</p>
+    
+        <div class="post-meta">
+            <time class="date">2022.12.05</time>
+            
+                <span class="category"><a class="category-link" href="/categories/python/">python</a></span>
+            
+            
+                <span class="tags"><a class="-none-link" href="/tags/python/" rel="tag">python</a></span>
+            
+        </div>
+    </div>
+    
+    <div class="post-item">
+        <h2>
             <a href="/2022/12/05/python/pytest/">Python pytest 模块单元测试</a>
         </h2>
     
         <p>一、简单入门：
 准备 requirements.txt 写入以下插件和包
-  123456`pytest``pytest-html``pytest-xdist``pytest-ordering`...</p>
+  123456`pytest``pytest-html``pytest-xdist``pytest-ordering``pytest-rerunfailures``allure-pytest`
+
+安装插件
+
+pip install -r requirements.txt
+
+
+</p>
+    
+        <div class="post-meta">
+            <time class="date">2022.12.05</time>
+            
+                <span class="category"><a class="category-link" href="/categories/python/">python</a></span>
+            
+            
+                <span class="tags"><a class="-none-link" href="/tags/python/" rel="tag">python</a></span>
+            
+        </div>
+    </div>
+    
+    <div class="post-item">
+        <h2>
+            <a href="/2022/12/05/python/python%20venv%20%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/">Python 虚拟环境 venv 的创建</a>
+        </h2>
+    
+        <p>
+python 项目为了类似 docker 一样隔离提供 venv 虚拟环境
+使用方法
+python -m venv【params】venvpath
+venv 参数如下
+
+一般来说只需要
+python -m venv --upgrade-deps venvpath
+除非需要之前的一些 site-package 否则不加 --system-site-package
+建议加上 --upgrade-deps
+这样无需手动更新 pip 造成无权限问题而导致原来的 pip 被删除
+
+
+
+
+
+
+</p>
     
         <div class="post-meta">
             <time class="date">2022.12.05</time>
@@ -95,7 +203,7 @@
             <div class="row">
                 <div class="col-m-4">
                     <h3 class="title-recent">最新文章：</h3>
-                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/python/python%E8%BF%90%E7%AE%97%E7%AC%A6/">python 运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/python/pytest/">Python pytest 模块单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/linux/docker/">docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/">测试用例设计方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/%E6%AD%A3%E4%BA%A4%E8%A1%A8%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">正交表工具使用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%A8%A1%E5%9E%8B/">软件质量模型</a></li></ul>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/12/07/python/python%20%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 基本数据类型常用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/python/python%20%E8%BF%90%E7%AE%97%E7%AC%A6/">python 运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/python/pytest/">Python pytest 模块单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/linux/docker/">docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/">测试用例设计方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/%E6%AD%A3%E4%BA%A4%E8%A1%A8%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">正交表工具使用方法</a></li></ul>
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-date">历史：</h3>

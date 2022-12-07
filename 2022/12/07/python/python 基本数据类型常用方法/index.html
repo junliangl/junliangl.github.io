@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     
+    <meta charset="UTF-8">
+    <title>python 基本数据类型常用方法 - onepiece</title>
+    <link rel="shortcut icon" href="/static/img/icon.png">
+    <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
+    
+<link rel="stylesheet" href="/static/kico.css">
+<link rel="stylesheet" href="/static/hingle.css">
+
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
+    <meta property="og:site_name" content="onepiece">
+    <meta property="og:title" content="python 基本数据类型常用方法"/>
+    
+    <style>body:before{ content: ''; background-image: url(https://github.com/junliangl/hexo-back/blob/master/images/images/%E6%9D%8F%E6%9E%9D.jpg?raw=true) }</style>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body class="dark-theme">
+    <header>
+    <div class="head-title">
+        <h4>onepiece</h4>
+    </div>
+    <div class="head-action">
+        <div class="toggle-btn"></div>
+        <div class="light-btn"></div>
+        <div class="search-btn"></div>
+    </div>
+    <form class="head-search" method="post">
+        <input type="text" name="s" placeholder="暂时不支持搜索哦">
+    </form>
+    <nav class="head-menu">
+        <a href="/">首页</a>
+        <div class="has-child">
+            <a>分类</a>
+            <div class="sub-menu">
+				<a href="/categories/python/">python</a>
+				<a href="/categories/linux">linux</a>
+				<a href="/categories/test-theory">测试理论</a>
+            </div>
+        </div>
+        
+            <a href="/about">关于我</a>
+        
+    </nav>
+</header>
+
+    <main>
+    <div class="wrap min">
+        <section class="post-title">
+            <h2>python 基本数据类型常用方法</h2>
+            <div class="post-meta">
+                <time class="date">2022.12.07</time>
+            
+                <span class="category"><a class="category-link" href="/categories/python/">python</a></span>
+            
+            </div>
+        </section>
+        <article class="post-content">
+        
+            <ul>
+<li><p>参考链接</p>
+<ul>
+<li><p>以下数据类型有些内容会涉及内存驻留机制，请参考</p>
+<p><a target="_blank" rel="noopener" href="https://quip.com/f16qAxQw5oKt">Python 驻留机制</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/laizhenghua/articles/12875044.html">https://www.cnblogs.com/laizhenghua/articles/12875044.html</a></p>
+</li>
+</ul>
+</li>
+<li><p>基本数据类型是 python 操作的重点，经常遗忘，在此写下</p>
+</li>
+<li><p>基本数据类型有 数字类型（int，float，complex），字符串类型（str），列表类型（list）元组（tuple），字典（dict），集合（set）</p>
+</li>
+<li><span id="more"></span>
+</li>
+<li><p>数字类型—&gt;不可变类型</p>
+<ul>
+<li>pass</li>
+</ul>
+</li>
+<li><p>字符串类型—&gt;不可变类型::这代表着以下方法如若修改列表，str 的 id(str) 值会更改，与 list不同。</p>
+<ul>
+<li><p>字符串具体操作方法请参考</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://quip.com/ppriAWQACObt">Python 字符串常用方法介绍</a></li>
+</ul>
+</li>
+<li><p>切片</p>
+<ul>
+<li><p><code>str[n]</code> 表示正数获取字符串的元素，表示从左往右数第 n+1 个元素:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():`</span><br><span class="line">    `test_str = <span class="string">&quot;junliangl&quot;</span>`</span><br><span class="line">    `<span class="built_in">print</span>(test_str[<span class="number">3</span>])`</span><br><span class="line"></span><br><span class="line">`<span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:`</span><br><span class="line">    `test()`</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出</p>
+<p><img src="/./images/python/data-type/1.png"></p>
+</li>
+<li><p><code>str[-n]</code> 表示负数获取字符串的元素，表示从右往左数第 n 个元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_str = <span class="string">&quot;junliangl&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(test_str[-<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出</p>
+<p><img src="/./images/python/data-type/2.png"></p>
+</li>
+<li><p>str[m:n] 表示从 m+1 取到第 n 的元素，不包含第 n 个元素（左闭右开原则）。如果截取不到，那么则返回空串 <code>&quot;&quot;</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_str = <span class="string">&quot;junliangl&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(test_str[<span class="number">0</span>:<span class="number">0</span>])</span><br><span class="line">    <span class="built_in">print</span>(test_str[<span class="number">0</span>:<span class="number">1</span>])</span><br><span class="line">    <span class="built_in">print</span>(test_str[<span class="number">2</span>:<span class="number">5</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出</p>
+<p><img src="/./images/python/data-type/3.png"></p>
+<ul>
+<li><p>str[:n] 表示取第 1 个 到第 n 的元素，不包含第 n 个元素；str[n:] 表示取第 n+1 个 到最后一个元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_str = <span class="string">&quot;junliangl&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(test_str[:-<span class="number">2</span>])</span><br><span class="line">    <span class="built_in">print</span>(test_str[<span class="number">2</span>:])</span><br><span class="line">    <span class="built_in">print</span>(test_str[:-<span class="number">10</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>输出</p>
+<p><img src="/./images/python/data-type/4.png"></p>
+</li>
+<li><p>str[a : b : c] </p>
+<ul>
+<li><p>如果 c 不写或者为正，则按照正方向截取。就代表着 a &lt; b，否则返回空串</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_str = <span class="string">&quot;junliangl&quot;</span></span><br><span class="line">    “<span class="built_in">print</span>(test_str[<span class="number">2</span>:<span class="number">6</span>:])</span><br><span class="line">    <span class="built_in">print</span>(test_str[<span class="number">6</span>:<span class="number">2</span>:<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出</p>
+<p><img src="/./images/python/data-type/5.png"></p>
+<ul>
+<li><p>如果 c 为负，则按照反方向截取。就代表着 a &gt; b ，否则返回空串</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_str = <span class="string">&quot;junliangl&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(test_str[<span class="number">8</span>:<span class="number">4</span>:-<span class="number">3</span>])</span><br><span class="line">    <span class="built_in">print</span>(test_str[-<span class="number">2</span>:-<span class="number">7</span>:-<span class="number">2</span>])</span><br><span class="line">    <span class="built_in">print</span>(test_str[-<span class="number">6</span> : -<span class="number">1</span> : -<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>输出</p>
+<p><img src="/./images/python/data-type/6.png"></p>
+</li>
+<li><p>应用</p>
+<ul>
+<li><code>str[::-1]</code><ul>
+<li>直接表示字符串反串</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>len() </code>方法求字符串长度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_str = <span class="string">&quot;junliangl&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">len</span>(test_str))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/7.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>lower()</code> 与 <code>upper() </code>表示字符串字母全变为小写和大写</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_str = <span class="string">&quot;JUNliangL&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(test_str.lower())</span><br><span class="line">    <span class="built_in">print</span>(test_str.upper())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/8.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>startwith(str)</code> 和 <code>endwith(str)</code> 表示是否以某一子串开始或结尾</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_str = <span class="string">&quot;JUNliangL&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(test_str.startswith(<span class="string">&quot;JUN&quot;</span>))</span><br><span class="line">    <span class="built_in">print</span>(test_str.endswith(<span class="string">&quot;GL&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>输出</p>
+<p><img src="/./images/python/data-type/9.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>join(s) </code>方法表示以指定字符串结合</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_str = <span class="string">&quot;----&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(test_str.join(<span class="string">&quot;1234&quot;</span>))</span><br><span class="line">    <span class="built_in">print</span>(test_str.join([<span class="string">&quot;1&quot;</span>, <span class="string">&quot;2&quot;</span>, <span class="string">&quot;3&quot;</span>, <span class="string">&quot;4&quot;</span>]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>输出</p>
+<p><img src="/./images/python/data-type/10.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>replace(old_str，new_str，count)</code> 表示把 old_str 子串替换成 new_str ，count是替换数量，默认值是替换全部</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    old_test_str = <span class="string">&quot;junliangl bad bad bad&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(old_test_str)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(old_test_str))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;----------------&quot;</span>)</span><br><span class="line">    new_test_str = old_test_str.replace(<span class="string">&quot;bad&quot;</span>, <span class="string">&quot;good&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(new_test_str)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(new_test_str))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;----------------&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(new_test_str.replace(<span class="string">&quot;good&quot;</span>, <span class="string">&quot;bad&quot;</span>, <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>输出</p>
+<p><img src="/./images/python/data-type/11.png"></p>
+</li>
+<li><p>很明显看出 replace() 方法不改变原来的字符串，创建了一个新的对象指向不同的字符串常量。</p>
+</li>
+</ul>
+</li>
+<li><p><code>count(str，start，end)</code> 表示计算 str 子串在原来字符串中出现的次数。start 和 end 控制返回，默认值则代表整个字符串范围</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_str = <span class="string">&quot;junliangl bad bad bad good good&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(test_str.count(<span class="string">&quot;bad&quot;</span>, <span class="number">9</span>, <span class="number">13</span>))</span><br><span class="line">    <span class="built_in">print</span>(test_str.count(<span class="string">&quot;good&quot;</span>))</span><br><span class="line">    <span class="built_in">print</span>(test_str.count(<span class="string">&quot;bad&quot;</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/12.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>split(str，count) </code>表示当前字符串以什么子串分隔，返回值为一个字符串列表 list。count 表示分隔几次，默认值是全部。没有子串则返回字符串列表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_str = <span class="string">&quot;junliangl bad bad bad good good&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(test_str.split(<span class="string">&quot; &quot;</span>))</span><br><span class="line">    test_str = <span class="string">&quot;junliangl,bad,bad,bad,good,good&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(test_str.split(<span class="string">&quot;,&quot;</span>, <span class="number">2</span>))</span><br><span class="line">    test_str = <span class="string">&quot;junliangl,bad,bad,bad,good,good&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(test_str.split(<span class="string">&quot;.&quot;</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/13.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>strip(str) </code>表示当前字符串去除以 str 子串开头和结尾。默认参数则去除首尾的空白字符(空格、\n、\t)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    old_test_str = <span class="string">&quot;123 junliangl 123&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(old_test_str))</span><br><span class="line">    <span class="built_in">print</span>(old_test_str)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-----------------&quot;</span>)</span><br><span class="line">    new_test_str = old_test_str.strip(<span class="string">&quot;123&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(old_test_str)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(new_test_str))</span><br><span class="line">    <span class="built_in">print</span>(new_test_str)</span><br><span class="line">    <span class="built_in">print</span>(new_test_str.strip())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>输出</p>
+<p><img src="/./images/python/data-type/14.png"></p>
+</li>
+<li><p>很明显看出 strip() 方法不改变原来的字符串，创建了一个新的对象指向不同的字符串常量。</p>
+</li>
+</ul>
+</li>
+<li><p><code>isdigit()</code> 表示如果字符串只包含数字，是则返回 True，否则返回 False</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test1_str = <span class="string">&quot;junliangl 123&quot;</span></span><br><span class="line">    test2_str = <span class="string">&quot;123&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(test1_str.isdigit())</span><br><span class="line">    <span class="built_in">print</span>(test2_str.isdigit())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/15.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>encode(encoding=)</code>对字符串进行编码，encoding填写编码格式。<code>decode(encoding=)</code>对字符串解码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_str</span>():</span><br><span class="line">    str_test = <span class="string">&quot;测试&quot;</span></span><br><span class="line">    encode = str_test.encode(encoding=<span class="string">&quot;GBK&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(encode)</span><br><span class="line">    new_str = encode.decode(encoding=<span class="string">&quot;GBK&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(new_str)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">b&#x27;\xb2\xe2\xc6\xd4&#x27;</span>.decode(encoding=<span class="string">&quot;GBK&quot;</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_str()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/16.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>列表类型—&gt;可变类型:这代表着以下方法如若修改列表，列表的 id(list)值不变，与 str 类型不同</p>
+<ul>
+<li><p><code>list[n] </code>索引取值遵循字符串规则</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_list = [<span class="string">&#x27;junliangl&#x27;</span>, <span class="number">1</span>, [<span class="number">1</span>, <span class="number">2</span>]]</span><br><span class="line">    <span class="built_in">print</span>(test_list[<span class="number">0</span>])</span><br><span class="line">    <span class="built_in">print</span>(test_list[-<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/17.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>list[a:b:c] </code>切片类似 str </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_list = [<span class="string">&#x27;junliangl&#x27;</span>, <span class="number">1</span>, [<span class="number">1</span>, <span class="number">2</span>], <span class="string">&#x27;best&#x27;</span>, <span class="string">&#x27;good&#x27;</span>]</span><br><span class="line">    <span class="built_in">print</span>(test_list[:<span class="number">3</span>])</span><br><span class="line">    <span class="built_in">print</span>(test_list[<span class="number">3</span>:])</span><br><span class="line">    <span class="built_in">print</span>(test_list[:-<span class="number">3</span>])</span><br><span class="line">    <span class="built_in">print</span>(test_list[-<span class="number">3</span>:])</span><br><span class="line">    <span class="built_in">print</span>(test_list[<span class="number">1</span>:-<span class="number">2</span>])</span><br><span class="line">    <span class="built_in">print</span>(test_list[<span class="number">1</span>:<span class="number">4</span>:<span class="number">1</span>])</span><br><span class="line">    <span class="built_in">print</span>(test_list[-<span class="number">2</span>:-<span class="number">4</span>:-<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/18.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>len(list) </code>代表列表长度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_list = [<span class="string">&#x27;junliangl&#x27;</span>, <span class="string">&#x27;best&#x27;</span>, <span class="string">&#x27;good&#x27;</span>]</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">len</span>(test_list))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/19.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>append(s) </code>代表往列表末尾追加一个元素 s。改变列表后，列表地址不变，以下的方法同理</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_list = [<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>]</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(test_list))</span><br><span class="line">    test_list.append(<span class="string">&#x27;4&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(test_list))</span><br><span class="line">    <span class="built_in">print</span>(test_list)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/20.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>insert(index，obj)</code> 表示往当前列表 index 处替换为 obj，其他元素后移。若 index &gt;&#x3D; len(list)，则在末尾处添加；若 index &lt;&#x3D; -len(list)，则在首部添加。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test1_list = [<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>]</span><br><span class="line">    test2_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">    test1_list.insert(-<span class="number">1</span>, <span class="string">&#x27;4&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(test1_list)</span><br><span class="line">    test2_list.insert(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">    <span class="built_in">print</span>(test2_list)</span><br><span class="line">    test1_list.insert(<span class="number">100</span>, <span class="string">&#x27;5&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(test1_list)</span><br><span class="line">    test2_list.insert(-<span class="number">100</span>, <span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(test2_list)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>输出</p>
+<p><img src="/./images/python/data-type/21.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>extend(iterable)</code> 表示往当前列表末尾添加一个序列而不是序列本身</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test1_list = [<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>]</span><br><span class="line">    test2_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">    test1_list.append(test2_list)</span><br><span class="line">    <span class="built_in">print</span>(test1_list)</span><br><span class="line">    test1_list = [<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>]</span><br><span class="line">    test1_list.extend(test2_list)</span><br><span class="line">    <span class="built_in">print</span>(test1_list)</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/22.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>del(list[a:b:c])</code> 表示删除列表选择的元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_list = [<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;4&#x27;</span>, <span class="string">&#x27;5&#x27;</span>]</span><br><span class="line">    <span class="keyword">del</span> test_list[-<span class="number">1</span>::-<span class="number">2</span>]</span><br><span class="line">    <span class="built_in">print</span>(test_list)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/23.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>pop(index)</code> 表示按照 index 删除，默认值为删除末尾的元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_list = [<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;4&#x27;</span>, <span class="string">&#x27;5&#x27;</span>]</span><br><span class="line">    test_list.pop(-<span class="number">2</span>)</span><br><span class="line">    <span class="built_in">print</span>(test_list)</span><br><span class="line">    test_list.pop()</span><br><span class="line">    <span class="built_in">print</span>(test_list)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/24.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>remove(obj)</code> 表示按照元素对象删除，默认删除寻找到的第一个元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_list = [<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;4&#x27;</span>, <span class="string">&#x27;1&#x27;</span>]</span><br><span class="line">    test_list.remove(<span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(test_list)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/25.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>count(obj, start, end)</code> 统计某个元素在当前列表出现的次数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>]</span><br><span class="line">    <span class="built_in">print</span>(test_list.count(<span class="number">2</span>))</span><br><span class="line">    <span class="built_in">print</span>(test_list.count(<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/26.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>index(obj，start，end)</code> 表示从 <code>list[start] --- list[end]</code> 之间的 obj 出现在 list 的第一个索引值， 找不到的话抛出 <code>ValueError</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(test_list.index(<span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>))</span><br><span class="line">    <span class="keyword">except</span> ValueError <span class="keyword">as</span> v:</span><br><span class="line">        <span class="built_in">print</span>(v)</span><br><span class="line">    <span class="built_in">print</span>(test_list.index(<span class="number">4</span>, <span class="number">0</span>, <span class="number">5</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/27.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>clear() </code>表示清空列表中的元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_list = [<span class="number">1</span>, [<span class="number">1</span>, <span class="number">2</span>], <span class="number">3</span>]</span><br><span class="line">    test_list[<span class="number">1</span>].clear()</span><br><span class="line">    <span class="built_in">print</span>(test_list)</span><br><span class="line">    test_list.clear()</span><br><span class="line">    <span class="built_in">print</span>(test_list)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/28.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>reverse() </code>表示反转列表中的元素等价 <code>list[::-1]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_list = [<span class="number">1</span>, [<span class="number">1</span>, <span class="number">2</span>], <span class="number">3</span>]</span><br><span class="line">    test_list[<span class="number">1</span>].reverse()</span><br><span class="line">    <span class="built_in">print</span>(test_list)</span><br><span class="line">    test_list.reverse()</span><br><span class="line">    <span class="built_in">print</span>(test_list)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/29.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>sort() </code>表示对列表进行排序，要保持类型一致，否则会报错</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test1_list = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">51</span>, <span class="number">10</span>, <span class="number">9</span>]</span><br><span class="line">    test2_list = [<span class="number">12</span>, <span class="string">&#x27;&#x27;</span>]</span><br><span class="line">    test1_list.sort()</span><br><span class="line">    <span class="built_in">print</span>(test1_list)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        test2_list.sort()</span><br><span class="line">        <span class="built_in">print</span>(test2_list)</span><br><span class="line">    <span class="keyword">except</span> TypeError <span class="keyword">as</span> t:</span><br><span class="line">        <span class="built_in">print</span>(t)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/30.png"></p>
+</li>
+</ul>
+</li>
+<li><p>关于 list 的拷贝</p>
+<ul>
+<li><p>参考链接</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://quip.com/VkfeAXOaYK07">Python 内存详解</a>关于python的列表的内存机制</li>
+</ul>
+</li>
+<li><p>分为赋值拷贝，浅拷贝和深拷贝</p>
+</li>
+<li><p>赋值拷贝，直接将对象(地址)赋值传递给新的对象。这样更改原来的元素都会影响赋值拷贝后的列表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test1_list = [<span class="number">1</span>, [<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]]</span><br><span class="line">    test2_list = test1_list</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(test1_list))</span><br><span class="line">    <span class="built_in">print</span>(test1_list)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;---------------------&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(test2_list))</span><br><span class="line">    <span class="built_in">print</span>(test2_list)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;---------------------&quot;</span>)</span><br><span class="line">    test1_list[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">10000</span></span><br><span class="line">    <span class="built_in">print</span>(test1_list)</span><br><span class="line">    <span class="built_in">print</span>(test2_list)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/31.png"></p>
+</li>
+</ul>
+</li>
+<li><p>浅拷贝。浅拷贝即未对所有层的内容进行拷贝，即其中包含赋值拷贝，即使他们的 id 值不一样。以下有几种使用方式</p>
+<ul>
+<li><p><code>for</code>循环依次赋值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    old = [<span class="number">1</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">3</span>]</span><br><span class="line">    new = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(old)):</span><br><span class="line">        new.append(old[i])</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(old))</span><br><span class="line">    <span class="built_in">print</span>(old)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;---------------------&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(new))</span><br><span class="line">    <span class="built_in">print</span>(new)</span><br><span class="line">    new[<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">    new[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;---------------------&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(old)</span><br><span class="line">    <span class="built_in">print</span>(new)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/32.png"></p>
+</li>
+</ul>
+</li>
+<li><p>使用<code>copy()</code> 方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    old = [<span class="number">1</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">3</span>]</span><br><span class="line">    new = old.copy()</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(old))</span><br><span class="line">    <span class="built_in">print</span>(old)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;---------------------&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(new))</span><br><span class="line">    <span class="built_in">print</span>(new)</span><br><span class="line">    new[<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">    new[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;---------------------&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(old)</span><br><span class="line">    <span class="built_in">print</span>(new)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/33.png"></p>
+</li>
+</ul>
+</li>
+<li><p>使用切片</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    old = [<span class="number">1</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">3</span>]</span><br><span class="line">    new = old[:]</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(old))</span><br><span class="line">    <span class="built_in">print</span>(old)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;---------------------&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(new))</span><br><span class="line">    <span class="built_in">print</span>(new)</span><br><span class="line">    new[<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">    new[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;---------------------&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(old)</span><br><span class="line">    <span class="built_in">print</span>(new)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/34.png"></p>
+</li>
+</ul>
+</li>
+<li><p>直接等值传递</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    old = [<span class="number">1</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">3</span>]</span><br><span class="line">    new = [<span class="number">1</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">3</span>]</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(old))</span><br><span class="line">    <span class="built_in">print</span>(old)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;---------------------&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(new))</span><br><span class="line">    <span class="built_in">print</span>(new)</span><br><span class="line">    new[<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">    new[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;---------------------&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(old)</span><br><span class="line">    <span class="built_in">print</span>(new)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/35.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>深拷贝，即创建与原对象完全无关的对象。需导入 copy 模块</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    old = [<span class="number">1</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">3</span>]</span><br><span class="line">    new = copy.deepcopy(old)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(old))</span><br><span class="line">    <span class="built_in">print</span>(old)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;---------------------&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(new))</span><br><span class="line">    <span class="built_in">print</span>(new)</span><br><span class="line">    new[<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">    new[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;---------------------&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(old)</span><br><span class="line">    <span class="built_in">print</span>(new)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/36.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>元组类型—&gt;不可变类型:元组相当于不可变的列表(为 id 值 无法变，但是对于列表元组等，可以更改里面的值)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test_tuple = (<span class="number">1</span>, [<span class="number">1</span>, <span class="number">2</span>])</span><br><span class="line">    <span class="built_in">print</span>(test_tuple)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        test_tuple[<span class="number">0</span>] = <span class="number">2</span></span><br><span class="line">    <span class="keyword">except</span> TypeError <span class="keyword">as</span> t:</span><br><span class="line">        <span class="built_in">print</span>(t)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        test_tuple[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">10000</span></span><br><span class="line">    <span class="keyword">except</span> TypeError <span class="keyword">as</span> t:</span><br><span class="line">        <span class="built_in">print</span>(t)</span><br><span class="line">    <span class="built_in">print</span>(test_tuple)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/37.png"></p>
+</li>
+<li><p>元组类型转换</p>
+<ul>
+<li><p><code>tuple(obj)</code> obj 只要为可迭代类型都能转换。对于 dict 类型转换只转换 key 值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    test1_tuple = <span class="built_in">tuple</span>(<span class="string">&quot;junliangl&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(test1_tuple)</span><br><span class="line">    test2_tuple = <span class="built_in">tuple</span>(&#123;<span class="string">&quot;first&quot;</span>: <span class="number">1</span>, <span class="string">&quot;second&quot;</span>: <span class="number">2</span>&#125;)</span><br><span class="line">    <span class="built_in">print</span>(test2_tuple)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/38.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>tuple[a:b:c] </code>切片，索引。和 list 一致 </p>
+<p><code>pass</code></p>
+</li>
+<li><p><code>len(tuple)</code> 和 list 一致</p>
+<p><code>pass</code></p>
+</li>
+<li><p><code>index(obj, start, end)</code> 和列表一致</p>
+<p><code>pass</code></p>
+</li>
+<li><p><code>count(obj, start, end)</code>和列表一致</p>
+<p><code>pass</code></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>字典类型—&gt;可变类型:这代表着以下方法如若修改字典，字典的 id(dict)值不变，与 str 类型不同</p>
+<ul>
+<li><p>参考链接</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wakey/p/16246920.html">https://www.cnblogs.com/wakey/p/16246920.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45228198/article/details/112771784">https://blog.csdn.net/weixin_45228198/article/details/112771784</a></li>
+</ul>
+</li>
+<li><p>字典底层采用 hash表（散列表）的形式存储数据。内存形式如下</p>
+<p><img src="/./images/python/data-type/39.png"></p>
+<ul>
+<li>\1. 插入数据<ul>
+<li>d[“name”]&#x3D;”jack”</li>
+<li>首先对键- -“name”计算哈希值，然后对当前C数组arr的长度求余</li>
+<li>得到一个索引值，假如为5，则将当前的（哈希值，键，值）作为一个整体存入arr[5]</li>
+</ul>
+</li>
+<li>2.哈希碰撞<ul>
+<li>当插入的键，经过哈希计算，求余后若得到与之前一样的索引，比如5</li>
+<li>因此索引处已经存有数据，无法再次存入，那么就将当前的索引+ 一个偏移量</li>
+<li>重新计算索引位置，然后存入数据，这在python中为开放地址法</li>
+</ul>
+</li>
+<li>\3. 扩容（可变）<ul>
+<li>当存入的数据超过总长度的2&#x2F;3时，字典会成倍扩容，对旧数据根据新数组长度计算索引，重新存入</li>
+</ul>
+</li>
+<li>4.更新值<ul>
+<li>d[“name”]&#x3D;”tom”</li>
+<li>首先计算键- “name”的哈希值，然后对当前数组总长度求余，得到索引，若索引</li>
+<li>对应位置的数据的键&#x3D;&#x3D;“name”，则更新它的值</li>
+</ul>
+</li>
+<li>5.删除</li>
+<li><ul>
+<li>del d[“name”]</li>
+<li>计算当前键- “name” 的哈希值，求余，找到索引，删除数据，仍保持探测链</li>
+<li>标记此处有过数据</li>
+</ul>
+</li>
+<li>优缺点<ul>
+<li>列表：遍历所有数据，一个一个的比较，数据量大时，时间复杂度高<br>字典：对要查找的键，计算哈希值，求余运算得到索引，一步到位，查找效率高。内存消耗极大，属于空间换取时间</li>
+<li>注意：遍历字典时添加新建可能导致字典底层数组扩容，导致散列链发生变化，因此一般不要对字典遍历的同时进行修改</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>具体过程如下：</p>
+<ul>
+<li><p>键值的存储过程</p>
+<ul>
+<li>首先要计算data[“name”]的散列值</li>
+<li>得到hash值后，我们从hash值最右边3位数字作为偏离量，即0b1xxxx000111101</li>
+<li>我们查看偏移量”101” 对应的bucket是否为空，如果为空，则将键值对放进去</li>
+<li>如果不为空，则依次去右边3位作为偏离量，即0b1xxxx000111101</li>
+<li>再看偏离量”111” 对应的bucket是否为空，直到找到为空的bucket将键值对放进去。</li>
+<li><img src="/./images/python/data-type/40.png"></li>
+</ul>
+</li>
+<li><p>字典查找值的过程</p>
+<ul>
+<li>我们要计算data[“name”] 里面的”name”对象</li>
+<li>确定偏离量，散列值的最右边3位数字作为偏离量 0b1xxxx000111101</li>
+<li>查看偏离量”101”对应的bucket是否为空，如果为空，则返回None</li>
+<li>如果不为空，则将这个bucket的键对象计算出对应的散列值和data[“name”]的”name”散列值进行比较，如果两个散列值相等，则将对应数组里的值对象返回，如果不相等，则再依次向前取3个【偏移量，如0b1xxxx000111101。依次取完，仍然没有找到，则返回None</li>
+<li><img src="/./images/python/data-type/41.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>字典的 key 必须是可散列的 数字类型，字符串类型，元组类型。如若是其他类型，则会报错</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_dict</span>():</span><br><span class="line">    a = &#123;(<span class="number">1</span>, <span class="number">2</span>): <span class="number">1</span>&#125;</span><br><span class="line">    <span class="built_in">print</span>(a)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        b = &#123;[<span class="number">1</span>, <span class="number">2</span>]: <span class="number">1</span>&#125;</span><br><span class="line">        <span class="built_in">print</span>(b)</span><br><span class="line">    <span class="keyword">except</span> TypeError <span class="keyword">as</span> t:</span><br><span class="line">        <span class="built_in">print</span>(t)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_dict()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/42.png"></p>
+</li>
+</ul>
+</li>
+<li><p>字典赋值</p>
+<ul>
+<li><p><code>dict[key] = value</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_dict</span>():</span><br><span class="line">    dict_test = &#123;&#125;</span><br><span class="line">    list_test = [[<span class="string">&quot;first&quot;</span>, <span class="string">&quot;value1&quot;</span>], [<span class="string">&quot;second&quot;</span>, <span class="string">&quot;value2&quot;</span>], [<span class="string">&quot;third&quot;</span>, <span class="string">&quot;value3&quot;</span>]]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> list_test:</span><br><span class="line">        dict_test[i[<span class="number">0</span>]] = i[<span class="number">1</span>]</span><br><span class="line">    <span class="built_in">print</span>(dict_test)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_dict()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/43.png"></p>
+</li>
+</ul>
+</li>
+<li><p>针对赋值操作，key 存在则修改，key 不存在则新增。所以字典里的 key 必须唯一</p>
+</li>
+</ul>
+</li>
+<li><p><code>fromkeys(obj，value)</code> 表示遍历序列 obj 作为新 dict 的 key，value 整体作为 value</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_dict</span>():</span><br><span class="line">    dict_test1 = &#123;&#125;</span><br><span class="line">    dict_test2 = dict_test1.fromkeys((<span class="number">1</span>, <span class="number">2</span>), <span class="number">3</span>)</span><br><span class="line">    <span class="built_in">print</span>(dict_test1)</span><br><span class="line">    <span class="built_in">print</span>(dict_test2)</span><br><span class="line">    dict_test3 = dict_test1.fromkeys([<span class="string">&quot;first&quot;</span>, <span class="string">&quot;second&quot;</span>], [<span class="string">&quot;value1&quot;</span>, <span class="string">&quot;value2&quot;</span>])</span><br><span class="line">    <span class="built_in">print</span>(dict_test3)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_dict()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/44.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>pop(key)</code> 方法代表删除，返回被删除的 value</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_dict</span>():</span><br><span class="line">    dict_test = &#123;<span class="string">&quot;key&quot;</span>: <span class="string">&quot;value&quot;</span>, <span class="number">5</span>: <span class="number">3</span>&#125;</span><br><span class="line">    value = dict_test.pop(<span class="string">&quot;key&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(value)</span><br><span class="line">    <span class="built_in">print</span>(dict_test)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_dict()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/45.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>popitem()</code> 后进先出原则删除字典最后添加的 key-value 对</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_dict</span>():</span><br><span class="line">    dict_test1 = &#123;<span class="string">&quot;key&quot;</span>: <span class="string">&quot;value&quot;</span>, <span class="number">5</span>: <span class="number">3</span>&#125;</span><br><span class="line">    <span class="built_in">print</span>(dict_test1.popitem())</span><br><span class="line">    <span class="built_in">print</span>(dict_test1)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;------------------&quot;</span>)</span><br><span class="line">    dict_test2 = &#123;<span class="number">5</span>: <span class="number">3</span>, <span class="number">6</span>: <span class="number">3</span>, <span class="number">2</span>: <span class="number">9</span>&#125;</span><br><span class="line">    <span class="built_in">print</span>(dict_test2.popitem())</span><br><span class="line">    <span class="built_in">print</span>(dict_test2)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_dict()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/46.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>clear()</code> 清空字典</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_dict</span>():</span><br><span class="line">    dict_test = &#123;<span class="string">&quot;key&quot;</span>: <span class="string">&quot;value&quot;</span>, <span class="number">5</span>: <span class="number">3</span>&#125;</span><br><span class="line">    dict_test.clear()</span><br><span class="line">    <span class="built_in">print</span>(dict_test)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_dict()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/47.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>update(dict)</code> 更新字典。key 重复则更新 value，没有则新增</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_dict</span>():</span><br><span class="line">    dict_test = &#123;<span class="string">&quot;first&quot;</span>: <span class="string">&quot;value1&quot;</span>, <span class="string">&quot;second&quot;</span>: <span class="string">&quot;value2&quot;</span>&#125;</span><br><span class="line">    <span class="built_in">print</span>(dict_test)</span><br><span class="line">    dict_test.update(&#123;<span class="string">&quot;first&quot;</span>: <span class="string">&quot;update&quot;</span>, <span class="string">&quot;third&quot;</span>: <span class="string">&quot;value3&quot;</span>&#125;)</span><br><span class="line">    <span class="built_in">print</span>(dict_test)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_dict()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/48.png"></p>
+</li>
+</ul>
+</li>
+<li><p>get(key，obj) 判断字典的 key 是否存在，若存在返回对应的 value，不存在则返回 obj</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_dict</span>():</span><br><span class="line">    dict_test1 = &#123;<span class="string">&quot;first&quot;</span>: <span class="string">&quot;value1&quot;</span>, <span class="string">&quot;second&quot;</span>: <span class="string">&quot;value2&quot;</span>&#125;</span><br><span class="line">    <span class="built_in">print</span>(dict_test1.get(<span class="string">&quot;first&quot;</span>, <span class="string">&quot;first 不存在&quot;</span>))</span><br><span class="line">    <span class="built_in">print</span>(dict_test1.get(<span class="string">&quot;third&quot;</span>, <span class="string">&quot;third 不存在&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_dict()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/49.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>setdefault(key，value) </code>如果当前 dict 存在 key，那么返回它的 value；否则把 key-value 键值对添加进字典并返回 vaule</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_dict</span>():</span><br><span class="line">    dict_test = &#123;<span class="string">&quot;first&quot;</span>: <span class="string">&quot;value1&quot;</span>, <span class="string">&quot;second&quot;</span>: <span class="string">&quot;value2&quot;</span>&#125;</span><br><span class="line">    dict_test.setdefault(<span class="string">&quot;third&quot;</span>, <span class="string">&quot;value3&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(dict_test.setdefault(<span class="string">&quot;third&quot;</span>, <span class="string">&quot;setdefault&quot;</span>))</span><br><span class="line">    <span class="built_in">print</span>(dict_test)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_dict()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/50.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>keys()</code> 获取 dict 的 keys。并返回该对象的生成器。这样节省了空间。如果要取值则可以自行强行转化成 list</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_dict</span>():</span><br><span class="line">    dict_test1 = &#123;<span class="string">&quot;first&quot;</span>: <span class="number">1</span>, <span class="string">&quot;second&quot;</span>: <span class="number">2</span>&#125;</span><br><span class="line">    keys = dict_test1.keys()</span><br><span class="line">    <span class="built_in">print</span>(keys)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(keys))</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">list</span>(keys))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_dict()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/51.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>values()</code> 获取 dict 的 values，其他同上</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_dict</span>():</span><br><span class="line">    dict_test1 = &#123;<span class="string">&quot;first&quot;</span>: <span class="number">1</span>, <span class="string">&quot;second&quot;</span>: <span class="number">2</span>&#125;</span><br><span class="line">    values = dict_test1.values()</span><br><span class="line">    <span class="built_in">print</span>(values)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(values))</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">list</span>(values))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_dict()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/52.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>items()</code>获取了dict 的 keys 和values 元组对，其他同上</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_dict</span>():</span><br><span class="line">    dict_test = &#123;<span class="string">&quot;first&quot;</span>: <span class="number">1</span>, <span class="string">&quot;second&quot;</span>: <span class="number">2</span>&#125;</span><br><span class="line">    items = dict_test.items()</span><br><span class="line">    <span class="built_in">print</span>(items)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(items))</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">list</span>(items))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_dict()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/53.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>集合类型—&gt;可变类型:这代表着以下方法如若修改字典，字典的 id(dict)值不变，与 str 类型不同</p>
+<ul>
+<li><p>集合元素满足</p>
+<ul>
+<li>必须是可散列的 数字，字符串，元组</li>
+</ul>
+</li>
+<li><p>底层原理</p>
+<ul>
+<li>依旧采用 hash 表进行存储</li>
+</ul>
+</li>
+<li><p>创建空集合 <code>set()</code></p>
+<ul>
+<li><p>不能采用 <code>&#123;&#125;</code>，系统默认为 dict 类型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_set</span>():</span><br><span class="line">    set_test = <span class="built_in">set</span>()</span><br><span class="line">    dict_test = &#123;&#125;</span><br><span class="line">    <span class="built_in">print</span>(set_test)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(set_test))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-----------------&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(dict_test)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(dict_test))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_set()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/55.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>如若不是空集合，则可以采用 <code>&#123;values&#125;</code> 方式创建</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_set</span>():</span><br><span class="line">    set_test = &#123;<span class="number">1</span>, <span class="number">2</span>&#125;</span><br><span class="line">    <span class="built_in">print</span>(set_test)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(set_test))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_set()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/56.png"></p>
+</li>
+</ul>
+</li>
+<li><p>由于集合内元素要参与 <code>hash(values)</code> 运算，所以得是不可变类型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_set</span>():</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        set_test = &#123;<span class="number">1</span>, [<span class="number">1</span>, <span class="number">2</span>]&#125;</span><br><span class="line">        <span class="built_in">print</span>(set_test)</span><br><span class="line">    <span class="keyword">except</span> TypeError <span class="keyword">as</span> t:</span><br><span class="line">        <span class="built_in">print</span>(t)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_set()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/57.png"></p>
+</li>
+</ul>
+</li>
+<li><p>交集 <code>set1 &amp; set2</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_set</span>():</span><br><span class="line">    set1 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">    set2 = &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;</span><br><span class="line">    set3 = &#123;<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>&#125;</span><br><span class="line">    <span class="built_in">print</span>(set1 &amp; set2)</span><br><span class="line">    <span class="built_in">print</span>(set2 &amp; set3)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_set()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/58.png"></p>
+</li>
+</ul>
+</li>
+<li><p>并集 <code>set1 | set2</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_set</span>():</span><br><span class="line">    set1 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">    set2 = &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;</span><br><span class="line">    <span class="built_in">print</span>(set1 | set2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_set()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输出</li>
+</ul>
+<p><img src="/./images/python/data-type/59.png"></p>
+</li>
+<li><p>差集 <code>set1 - set2</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_set</span>():</span><br><span class="line">    set1 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">    set2 = &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;</span><br><span class="line">    <span class="built_in">print</span>(set1 - set2)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_set()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/60.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>discard(value)</code> 删除集合中 value 元素，找不到不会抛出异常</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_set</span>():</span><br><span class="line">    set_test = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">    set_test.discard(<span class="number">1</span>)</span><br><span class="line">    <span class="built_in">print</span>(set_test)</span><br><span class="line">    set_test.discard(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_set()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/61.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>remove(values)</code> 删除 value 。找不到则报错</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_set</span>():</span><br><span class="line">    set_test = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">    set_test.remove(<span class="number">2</span>)</span><br><span class="line">    <span class="built_in">print</span>(set_test)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        set_test.remove(<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">except</span> KeyError <span class="keyword">as</span> k:</span><br><span class="line">        <span class="built_in">print</span>(k)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_set()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/62.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>update(obj)</code> 遍历序列 obj 更新集合 。序列一定是可哈希的，否则报错。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_set</span>():</span><br><span class="line">    set_test = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">    set_test.update([<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>])</span><br><span class="line">    <span class="built_in">print</span>(set_test)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        set_test.update([<span class="number">2</span>, <span class="number">3</span>, [<span class="number">1</span>, <span class="number">2</span>]])</span><br><span class="line">    <span class="keyword">except</span> TypeError <span class="keyword">as</span> t:</span><br><span class="line">        <span class="built_in">print</span>(t)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_set()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/63.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>pop()</code> 随机删除一个元素。通常是展现出的删除第一个元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_set</span>():</span><br><span class="line">    set_test1 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">    set_test1.pop()</span><br><span class="line">    <span class="built_in">print</span>(set_test1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_set()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/64.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>add(value)</code> 往集合中增加一个元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_set</span>():</span><br><span class="line">    set_test1 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">    set_test1.add(<span class="number">4</span>)</span><br><span class="line">    <span class="built_in">print</span>(set_test1)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        set_test1.add([])</span><br><span class="line">    <span class="keyword">except</span> TypeError <span class="keyword">as</span> t:</span><br><span class="line">        <span class="built_in">print</span>(t)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_set()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/65.png"></p>
+</li>
+</ul>
+</li>
+<li><p><code>clear()</code> 清空集合</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_set</span>():</span><br><span class="line">    set_test = &#123;<span class="string">&quot;&quot;</span>, <span class="number">1</span>, ()&#125;</span><br><span class="line">    set_test.clear()</span><br><span class="line">    <span class="built_in">print</span>(set_test)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_set()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>返回</p>
+<p><img src="/./images/python/data-type/66.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </article>
+        <section class="post-near">
+            <ul>
+                
+                    <li>上一篇: 看完啦 (つд⊂)</li>
+                
+                
+                    <li>下一篇: <a href="/2022/12/05/python/python%20%E8%BF%90%E7%AE%97%E7%AC%A6/">python 运算符</a></li>
+                
+            </ul>
+        </section>
+        
+            <section class="post-tags">
+            <a class="-none-link" href="/tags/python/" rel="tag">python</a>
+            </section>
+        
+    
+        <section class="post-author">
+        
+            <figure class="author-avatar">
+                <img src="https://github.com/junliangl/hexo-back/blob/master/images/icon/myhead.jpg?raw=true# 作者头像" alt="Junliangl" />
+            </figure>
+        
+            <div class="author-info">
+                <h4>Junliangl</h4>
+                <p>请在这里设置你的作者信息</p>
+            </div>
+        </section>
+    
+    </div>
+</main>
+
+    <footer>
+    <div class="buttons">
+        <a class="to-top" href="#"></a>
+    </div>
+    <div class="wrap min">
+        <section class="widget">
+            <div class="row">
+                <div class="col-m-4">
+                    <h3 class="title-recent">最新文章：</h3>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/12/07/python/python%20%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 基本数据类型常用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/python/python%20%E8%BF%90%E7%AE%97%E7%AC%A6/">python 运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/python/pytest/">Python pytest 模块单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/linux/docker/">docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/">测试用例设计方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/%E6%AD%A3%E4%BA%A4%E8%A1%A8%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">正交表工具使用方法</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-date">历史：</h3>
+                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-tags">标签云：</h3>
+                    <a href="/tags/python/" style="font-size: 1020;">python</a>
+                </div>
+            </div>
+        </section>
+        <section class="sub-footer">
+            <p>© 2022 <a href="/">onepiece</a>. All Rights Reserved. Theme By <a href="https://github.com/Dreamer-Paul/Hingle" target="_blank" rel="nofollow">Hingle</a>.</p>
+        </section>
+    </div>
+</footer>
+
+
+<script src="/static/kico.js"></script>
+<script src="/static/hingle.js"></script>
+
+
+<script>var hingle = new Paul_Hingle({"copyright":true,"night":true});</script>
+
+  </body>
+</html>
