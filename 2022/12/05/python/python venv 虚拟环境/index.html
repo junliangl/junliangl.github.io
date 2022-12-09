@@ -41,7 +41,7 @@
             <div class="sub-menu">
 				<a href="/categories/python/">python</a>
 				<a href="/categories/linux">linux</a>
-				<a href="/categories/test-theory">测试理论</a>
+				<a href="/categories/test">测试</a>
             </div>
         </div>
         
@@ -63,55 +63,35 @@
         </section>
         <article class="post-content">
         
-            <ul>
-<li>python 项目为了类似 docker 一样隔离提供 venv 虚拟环境</li>
-<li>使用方法<ul>
-<li><code>python -m venv【params】venvpath</code></li>
-<li>venv 参数如下</li>
-<li><img src="/./images/python/venv/1.png"></li>
-<li>一般来说只需要<ul>
-<li><code>python -m venv --upgrade-deps venvpath</code></li>
-<li>除非需要之前的一些 site-package 否则不加 <code>--system-site-package</code></li>
-<li>建议加上 <code>--upgrade-deps</code><ul>
+            <h1 id="引入原因"><a href="#引入原因" class="headerlink" title="引入原因"></a>引入原因</h1><p>python 项目为了类似 docker 一样隔离提供 venv 虚拟环境</p>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p><code>python -m venv【params】venvpath</code></p>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p><img src="/./images/python/venv/1.png"></p>
+<h2 id="一般情况"><a href="#一般情况" class="headerlink" title="一般情况"></a>一般情况</h2><p><code>python -m venv --upgrade-deps venvpath</code></p>
+<p>除非需要之前的一些 site-package 否则不加 <code>--system-site-package</code></p>
+<h2 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h2><p>建议加上 <code>--upgrade-deps</code></p>
+<ul>
 <li>这样无需手动更新 pip 造成无权限问题而导致原来的 pip 被删除</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><span id="more"></span>
+<span id="more"></span>
+
+<h2 id="进入虚拟环境"><a href="#进入虚拟环境" class="headerlink" title="进入虚拟环境"></a>进入虚拟环境</h2><p>安装好以后可以打开 Scripts&#x2F; 目录下的 <code>activate.bat</code> 批处理文件进入虚拟环境</p>
 <ul>
-<li>安装好以后可以打开 Scripts&#x2F; 目录下的 <code>activate.bat</code> 批处理文件进入虚拟环境<ul>
-<li>activate</li>
-<li><img src="/./images/python/venv/2.png"></li>
-<li>也可以在 git-bash 里用 source 命令执行<ul>
-<li><img src="/./images/python/venv/3.png"></li>
-</ul>
-</li>
-<li>可以用 pip list 查看包情况判断是否进入 python 虚拟环境</li>
-</ul>
-</li>
-<li>如何退出<ul>
-<li>同样在虚环境里执行 deactivate.bat <ul>
-<li><img src="/./images/python/venv/4.png"></li>
-</ul>
+<li><p><code>activate</code></p>
+<p>  <img src="/./images/python/venv/2.png"></p>
 </li>
 </ul>
-</li>
-<li>pycharm 新建项目如何使用虚拟环境<ul>
-<li>只需新建项目里配置虚拟环境解释器路径</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<h2 id="其他方式进入虚拟环境"><a href="#其他方式进入虚拟环境" class="headerlink" title="其他方式进入虚拟环境"></a>其他方式进入虚拟环境</h2><p>也可以在 git-bash 里用 source 命令执行</p>
+<p><img src="/./images/python/venv/3.png"></p>
+<h2 id="查看是否进入虚拟环境"><a href="#查看是否进入虚拟环境" class="headerlink" title="查看是否进入虚拟环境"></a>查看是否进入虚拟环境</h2><p>可以用 pip list 查看包情况判断是否进入 python 虚拟环境</p>
+<h2 id="退出虚拟环境"><a href="#退出虚拟环境" class="headerlink" title="退出虚拟环境"></a>退出虚拟环境</h2><p>同样在虚环境里执行 deactivate.bat </p>
+<p><img src="/./images/python/venv/4.png"></p>
+<h2 id="pycharm-中使用虚拟环境"><a href="#pycharm-中使用虚拟环境" class="headerlink" title="pycharm 中使用虚拟环境"></a>pycharm 中使用虚拟环境</h2><p>只需新建项目里配置虚拟环境解释器路径</p>
 
         </article>
         <section class="post-near">
             <ul>
                 
-                    <li>上一篇: <a href="/2022/12/05/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%EF%BC%88SDLC)/">软件开发模型（SDLC)</a></li>
+                    <li>上一篇: <a href="/2022/12/05/%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%EF%BC%88SDLC)/">软件开发模型（SDLC)</a></li>
                 
                 
                     <li>下一篇: 看完啦 (つд⊂)</li>
@@ -120,7 +100,7 @@
         </section>
         
             <section class="post-tags">
-            <a class="-none-link" href="/tags/python/" rel="tag">python</a>
+            <a class="-none-link" href="/tags/python/" rel="tag">python</a><a class="-none-link" href="/tags/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" rel="tag">虚拟环境</a>
             </section>
         
     
@@ -148,7 +128,7 @@
             <div class="row">
                 <div class="col-m-4">
                     <h3 class="title-recent">最新文章：</h3>
-                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/12/07/python/python%20%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 基本数据类型常用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/python/python%20%E8%BF%90%E7%AE%97%E7%AC%A6/">python 运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/python/pytest/">Python pytest 模块单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/linux/docker/">docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/">测试用例设计方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/%E6%AD%A3%E4%BA%A4%E8%A1%A8%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">正交表工具使用方法</a></li></ul>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/">python 函数详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E9%A9%BB%E7%95%99%E6%9C%BA%E5%88%B6/">python 驻留机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6%20break%20%E5%92%8C%20continue/">python 循环控制 break 和 continue</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 字符串常用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/">python 变量的作用域</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/07/python/python%20%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 基本数据类型常用方法</a></li></ul>
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-date">历史：</h3>
@@ -156,7 +136,7 @@
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-tags">标签云：</h3>
-                    <a href="/tags/python/" style="font-size: 1020;">python</a>
+                    <a href="/tags/continer/" style="font-size: 1020;">continer</a> <a href="/tags/pytest/" style="font-size: 1020;">pytest</a> <a href="/tags/python/" style="font-size: 2020;">python</a> <a href="/tags/%E5%87%BD%E6%95%B0/" style="font-size: 1020;">函数</a> <a href="/tags/%E5%8F%98%E9%87%8F/" style="font-size: 1020;">变量</a> <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 1020;">基本数据类型</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 1020;">字符串</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" style="font-size: 1520;">常用方法</a> <a href="/tags/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B/" style="font-size: 1020;">开发模型</a> <a href="/tags/%E5%BE%AA%E7%8E%AF/" style="font-size: 1020;">循环</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 1020;">方法</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" style="font-size: 1020;">测试工具</a>
                 </div>
             </div>
         </section>

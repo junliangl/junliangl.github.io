@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     
+    <meta charset="UTF-8">
+    <title>软件质量模型 - onepiece</title>
+    <link rel="shortcut icon" href="/static/img/icon.png">
+    <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
+    
+<link rel="stylesheet" href="/static/kico.css">
+<link rel="stylesheet" href="/static/hingle.css">
+
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
+    <meta property="og:site_name" content="onepiece">
+    <meta property="og:title" content="软件质量模型"/>
+    
+    <style>body:before{ content: ''; background-image: url(https://github.com/junliangl/hexo-back/blob/master/images/images/%E6%9D%8F%E6%9E%9D.jpg?raw=true) }</style>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body class="dark-theme">
+    <header>
+    <div class="head-title">
+        <h4>onepiece</h4>
+    </div>
+    <div class="head-action">
+        <div class="toggle-btn"></div>
+        <div class="light-btn"></div>
+        <div class="search-btn"></div>
+    </div>
+    <form class="head-search" method="post">
+        <input type="text" name="s" placeholder="暂时不支持搜索哦">
+    </form>
+    <nav class="head-menu">
+        <a href="/">首页</a>
+        <div class="has-child">
+            <a>分类</a>
+            <div class="sub-menu">
+				<a href="/categories/python/">python</a>
+				<a href="/categories/linux">linux</a>
+				<a href="/categories/test">测试</a>
+            </div>
+        </div>
+        
+            <a href="/about">关于我</a>
+        
+    </nav>
+</header>
+
+    <main>
+    <div class="wrap min">
+        <section class="post-title">
+            <h2>软件质量模型</h2>
+            <div class="post-meta">
+                <time class="date">2022.12.05</time>
+            
+                <span class="category"><a class="category-link" href="/categories/test/">测试</a></span>
+            
+            </div>
+        </section>
+        <article class="post-content">
+        
+            <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1457805">https://cloud.tencent.com/developer/article/1457805</a></li>
+</ul>
+<h1 id="官方"><a href="#官方" class="headerlink" title="官方"></a>官方</h1><p>软件质量模型是现 ISO/IEC25015 或 ISO/IEC9126 发布的软件质量保证的模型</p>
+<ul>
+<li>它可以用官方的解释来判断一个软件质量的好坏与否</li>
+</ul>
+<h1 id="质量模型"><a href="#质量模型" class="headerlink" title="质量模型"></a>质量模型</h1><p>质量模型涉及6大特性和27个子特性</p>
+<span id="more"></span>
+
+<p><img src="/./images/test/QA-modules/1.png"></p>
+<h2 id="功能性"><a href="#功能性" class="headerlink" title="功能性"></a><em>功能性</em></h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ol>
+<li><p><em>软件产品提供明确、隐含要求的能力</em></p>
+<p>2.<em>适合性</em> 软件产品为指定的任务和用户提供一组合适的功能的能力（投入运行后，功能是否合适、正确、完整等）</p>
+<p>3.<em>准确性</em> 软件产品提供具有所需精度的正确或相符的结果或效果的能力（实际与预期的差别）</p>
+<p>4.<em>互操作性</em> 软件产品与一个或更多的规定系统进行交互的能力（如果与其它软件有定义接口，数据传输的正确程度）</p>
+</li>
+<li><p><em>安全保密性</em> 软件产品保护信息和数据的能力，使未授权的人不能阅读或修改这些信息和数据，而不拒绝授权人员阅读或修改这些信息和数据(访问的可审核性（正常、病毒）、可控制性）</p>
+<p>6.<em>功能性的依从性</em> 软件产品遵循与功能性相关的标准、约定或法规及类似规定的能力（非法）</p>
+</li>
+</ol>
+<h2 id="可靠性"><a href="#可靠性" class="headerlink" title="可靠性"></a><em>可靠性</em></h2><ol>
+<li><em>在指定条件下使用时，软件产品维持规定的性能级别的能力</em></li>
+<li><em>成熟性</em> 软件产品为避免由软件内部的故障而导致失效的能力（潜在的故障密度、失效的测试用例数量、故障排除）</li>
+<li><em>容错性</em> 在软件出现故障或者违反其指定接口的情况下，软件产品维持规定的性能级别的能力</li>
+<li><em>易恢复性</em> 在失效发生的情况下，软件产品重建规定的性能级别并恢复受直接影响的数据的能力（重启能力、重启时间）</li>
+<li><em>可靠性的依从性</em> 软件产品遵循与可靠性相关的标准、约定或法规的能力（非法）</li>
+</ol>
+<h2 id="易用性"><a href="#易用性" class="headerlink" title="易用性"></a><em>易用性</em></h2><ol>
+<li><em>在指定条件下使用时，软件产品被理解、学习、使用和在指定条件下使用时，软件产品被理解、学习、使用和吸引用户的能力</em></li>
+<li><em>易理解性</em> 软件产品使用户能理解软件是否合适以及如何能将软件用于特定的任务和使用条件的能力（文档、功能的初始印象）</li>
+<li><em>易学性</em> 软件产品使用户能学会其应用的能力（使用者学习满足需求的能力）</li>
+<li><em>易操作性</em> 软件产品使用户能操作和控制它的能力</li>
+<li><em>吸引性</em> 软件产品吸引用户的能力</li>
+<li><em>易用性的依从性</em> 软件产品遵循与易用性相关的标准、约定、风格指南或法规的能力（非法）</li>
+</ol>
+<h2 id="效率"><a href="#效率" class="headerlink" title="效率"></a><em>效率</em></h2><ol>
+<li><em>在规定条件下，相对于所用资源的数量，软件产品可提在规定条件下，相对于所用资源的数量，软件产品可提供适当性能的能力</em></li>
+<li><em>时间特性</em> 在规定条件下，软件产品执行其功能时，提供适当的响应和处理时间以及吞吐率的能力（如响应时间）</li>
+<li><em>资源利用性</em> 在规定条件下，软件产品执行其功能时，使用合适数量和类别的资源的能力（如内存占用）</li>
+<li><em>效率依从性</em> 软件产品遵循与效率相关的标准或约定的能力（非法）</li>
+</ol>
+<h2 id="可维护性"><a href="#可维护性" class="headerlink" title="可维护性"></a><em>可维护性</em></h2><ol>
+<li><em>软件产品可被修改的能力。修改可能包括修正、改进或软件对环境、需求和功能规格说明变化的适应</em></li>
+<li><em>易分析性</em> 软件产品诊断软件中的缺陷或失效原因或识别待修改部分的能力。</li>
+<li><em>易改变性</em> 软件产品使指定的修改可以被实现的能力（变更难易的程度）</li>
+<li><em>稳定性</em> 软件产品避免由于软件修改而造成意外结果的能力（由于软件修改而造成的意外）</li>
+<li><em>易测试性</em> 软件产品修改能被确认的能力</li>
+<li><em>维护性的依从性</em> 软件产品遵循与维护性相关的标准或约定的能力（非法）</li>
+</ol>
+<h2 id="可移植性"><a href="#可移植性" class="headerlink" title="可移植性"></a><em>可移植性</em></h2><ol>
+<li><em>软件产品从一种环境迁移到另一种环境的能力</em></li>
+<li><em>适应性</em> 软件产品毋需采用额外的活动或手段就可适应不同指定环境的能力（屏幕大小）</li>
+<li><em>易安装性</em> 软件产品在指定环境中被安装的能力（用户在指定环境中被安装的能力，与易操作性互相影响）</li>
+<li><em>共存性</em> 软件产品在公共环境中同与其分享公共资源的其他独立软件共存的能力（共享资源的其它软件）</li>
+<li><em>易替换性</em> 软件产品在同样环境下，替代另一个相同用途的软件产品的能力（版本迭代、新旧兼容）</li>
+<li><em>可移植性的依从性</em> 软件产品遵循与可移植性相关的标准或约定的能力（非法）</li>
+</ol>
+<h2 id="软件的使用质量模型"><a href="#软件的使用质量模型" class="headerlink" title="软件的使用质量模型"></a>软件的使用质量模型</h2><p>基于用户观点的软件产品用于指定的环境和使用周境时的质量。它测量用户在特定环境中能达到其目标的程度，而不是测量软件自身的属性。</p>
+<p>基本的软件使用质量模型包括4大特性</p>
+<p><img src="/./images/test/QA-modules/2.png"></p>
+
+        </article>
+        <section class="post-near">
+            <ul>
+                
+                    <li>上一篇: <a href="/2022/12/05/%E6%B5%8B%E8%AF%95/%E6%AD%A3%E4%BA%A4%E8%A1%A8%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">正交表工具使用方法</a></li>
+                
+                
+                    <li>下一篇: <a href="/2022/12/05/%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%EF%BC%88SDLC)/">软件开发模型（SDLC)</a></li>
+                
+            </ul>
+        </section>
+        
+            <section class="post-tags">
+            <a class="-none-link" href="/tags/%E8%B4%A8%E9%87%8F%E6%A8%A1%E5%9E%8B/" rel="tag">质量模型</a>
+            </section>
+        
+    
+        <section class="post-author">
+        
+            <figure class="author-avatar">
+                <img src="https://github.com/junliangl/hexo-back/blob/master/images/icon/myhead.jpg?raw=true# 作者头像" alt="Junliangl" />
+            </figure>
+        
+            <div class="author-info">
+                <h4>Junliangl</h4>
+                <p>请在这里设置你的作者信息</p>
+            </div>
+        </section>
+    
+    </div>
+</main>
+
+    <footer>
+    <div class="buttons">
+        <a class="to-top" href="#"></a>
+    </div>
+    <div class="wrap min">
+        <section class="widget">
+            <div class="row">
+                <div class="col-m-4">
+                    <h3 class="title-recent">最新文章：</h3>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/">python 函数详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E9%A9%BB%E7%95%99%E6%9C%BA%E5%88%B6/">python 驻留机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6%20break%20%E5%92%8C%20continue/">python 循环控制 break 和 continue</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 字符串常用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/">python 变量的作用域</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/07/python/python%20%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 基本数据类型常用方法</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-date">历史：</h3>
+                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-tags">标签云：</h3>
+                    <a href="/tags/continer/" style="font-size: 1020;">continer</a> <a href="/tags/pytest/" style="font-size: 1020;">pytest</a> <a href="/tags/python/" style="font-size: 2020;">python</a> <a href="/tags/%E5%87%BD%E6%95%B0/" style="font-size: 1020;">函数</a> <a href="/tags/%E5%8F%98%E9%87%8F/" style="font-size: 1020;">变量</a> <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 1020;">基本数据类型</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 1020;">字符串</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" style="font-size: 1520;">常用方法</a> <a href="/tags/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B/" style="font-size: 1020;">开发模型</a> <a href="/tags/%E5%BE%AA%E7%8E%AF/" style="font-size: 1020;">循环</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 1020;">方法</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" style="font-size: 1020;">测试工具</a>
+                </div>
+            </div>
+        </section>
+        <section class="sub-footer">
+            <p>© 2022 <a href="/">onepiece</a>. All Rights Reserved. Theme By <a href="https://github.com/Dreamer-Paul/Hingle" target="_blank" rel="nofollow">Hingle</a>.</p>
+        </section>
+    </div>
+</footer>
+
+
+<script src="/static/kico.js"></script>
+<script src="/static/hingle.js"></script>
+
+
+<script>var hingle = new Paul_Hingle({"copyright":true,"night":true});</script>
+
+  </body>
+</html>

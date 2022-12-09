@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     
+    <meta charset="UTF-8">
+    <title>python 变量的作用域 - onepiece</title>
+    <link rel="shortcut icon" href="/static/img/icon.png">
+    <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
+    
+<link rel="stylesheet" href="/static/kico.css">
+<link rel="stylesheet" href="/static/hingle.css">
+
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
+    <meta property="og:site_name" content="onepiece">
+    <meta property="og:title" content="python 变量的作用域"/>
+    
+    <style>body:before{ content: ''; background-image: url(https://github.com/junliangl/hexo-back/blob/master/images/images/%E6%9D%8F%E6%9E%9D.jpg?raw=true) }</style>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body class="dark-theme">
+    <header>
+    <div class="head-title">
+        <h4>onepiece</h4>
+    </div>
+    <div class="head-action">
+        <div class="toggle-btn"></div>
+        <div class="light-btn"></div>
+        <div class="search-btn"></div>
+    </div>
+    <form class="head-search" method="post">
+        <input type="text" name="s" placeholder="暂时不支持搜索哦">
+    </form>
+    <nav class="head-menu">
+        <a href="/">首页</a>
+        <div class="has-child">
+            <a>分类</a>
+            <div class="sub-menu">
+				<a href="/categories/python/">python</a>
+				<a href="/categories/linux">linux</a>
+				<a href="/categories/test">测试</a>
+            </div>
+        </div>
+        
+            <a href="/about">关于我</a>
+        
+    </nav>
+</header>
+
+    <main>
+    <div class="wrap min">
+        <section class="post-title">
+            <h2>python 变量的作用域</h2>
+            <div class="post-meta">
+                <time class="date">2022.12.08</time>
+            
+                <span class="category"><a class="category-link" href="/categories/python/">python</a></span>
+            
+            </div>
+        </section>
+        <article class="post-content">
+        
+            <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xv4y1S7ov/?spm_id_from=333.880.my_history.page.click&amp;vd_source=f9937d98d0a8cc08ef5248c3c127d588">https://www.bilibili.com/video/BV1xv4y1S7ov/?spm_id_from=333.880.my_history.page.click&amp;vd_source=f9937d98d0a8cc08ef5248c3c127d588</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1vQ4y1D7Ct/?p=2&amp;spm_id_from=pageDriver&amp;vd_source=f9937d98d0a8cc08ef5248c3c127d588">https://www.bilibili.com/video/BV1vQ4y1D7Ct/?p=2&amp;spm_id_from=pageDriver&amp;vd_source=f9937d98d0a8cc08ef5248c3c127d588</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-namespace-scope.html">https://www.runoob.com/python3/python3-namespace-scope.html</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/cadi2011/article/details/52457754">https://blog.csdn.net/cadi2011/article/details/52457754</a></p>
+<p><img src="/./images/python/variable/1.png"></p>
+</li>
+</ul>
+<p>变量分为 内置变量，全局变量，类变量，实例变量，局部变量</p>
+<p>python 使用变量作用域一般要遵循 LEGB（本地，上层嵌套，全局，内置）</p>
+<span id="more"></span>
+
+<h1 id="内置变量"><a href="#内置变量" class="headerlink" title="内置变量"></a>内置变量</h1><h2 id="概念和范围"><a href="#概念和范围" class="headerlink" title="概念和范围"></a>概念和范围</h2><p>Python 语言内置的名称，比如函数名 <code>abs</code>、<code>char</code> 和异常名称 <code>BaseException</code>、<code>Exception</code> 等等</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    <span class="built_in">print</span>(Exception)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/./images/python/data-type/2.png"></p>
+<h1 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h1><h2 id="概念和范围-1"><a href="#概念和范围-1" class="headerlink" title="概念和范围"></a>概念和范围</h2><p>模块内、所有方法外、所有类外。一般全局变量都不会在任何结构体内，一般位于 python 文件的最外层。可以被本模块的所有结构体给访问</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">global_arg = <span class="string">&quot;全局变量&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>:</span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test1</span>(<span class="params">cls</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;test1可以访问<span class="subst">&#123;global_arg&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">test2</span>():</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;test2可以访问<span class="subst">&#123;global_arg&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">def</span> <span class="title function_">test3</span>():</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">f&quot;test3可以访问<span class="subst">&#123;global_arg&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">            test3()</span><br><span class="line"></span><br><span class="line">        test2()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    A.test1() </span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/./images/python/data-type/3.png"></p>
+<p>以上可以看出在一个类里的方法，和方法里的内部方法都可以访问最外层的 global_arg 全局变量</p>
+<h2 id="全局变量的声明"><a href="#全局变量的声明" class="headerlink" title="全局变量的声明"></a>全局变量的声明</h2><p>如果是对局部变量 读 的操作，可以省去 <code>global</code> 关键字的声明，但是，为了区分局部变量和全局变量，建议使用全局变量都应该申明 <code>global</code></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">global_arg = <span class="string">&quot;全局变量&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>:</span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test1</span>(<span class="params">cls</span>):</span><br><span class="line">        global_arg = <span class="string">&quot;局部变量1&quot;</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;test1可以访问<span class="subst">&#123;global_arg&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">test2</span>():</span><br><span class="line">            global_arg = <span class="string">&quot;局部变量2&quot;</span></span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;test2可以访问<span class="subst">&#123;global_arg&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">def</span> <span class="title function_">test3</span>():</span><br><span class="line">                global_arg = <span class="string">&quot;局部变量3&quot;</span></span><br><span class="line">                <span class="built_in">print</span>(<span class="string">f&quot;test3可以访问<span class="subst">&#123;global_arg&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">            test3()</span><br><span class="line"></span><br><span class="line">        test2()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    A.test1()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/./images/python/data-type/4.png"></p>
+<p>从以上结果我们可以分析出当存在局部变量重名时优先使用的是局部变量</p>
+<p>给全局变量声明 <code>global</code> 关键字</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">global_arg = <span class="string">&quot;全局变量&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>:</span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test1</span>(<span class="params">cls</span>):</span><br><span class="line">        global_arg = <span class="string">&quot;局部变量1&quot;</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;test1可以访问<span class="subst">&#123;global_arg&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">test2</span>():</span><br><span class="line">            <span class="keyword">global</span> global_arg</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;test2可以访问<span class="subst">&#123;global_arg&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">def</span> <span class="title function_">test3</span>():</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">f&quot;test3可以访问<span class="subst">&#123;global_arg&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">            test3()</span><br><span class="line"></span><br><span class="line">        test2()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    A.test1()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/./images/python/data-type/5.png"></p>
+<p>通过以上信息发现，声明 <code>global</code> 关键字后该变量以后的所有局部作用域都会使用声明的全局变量</p>
+<p>如果是对局部变量有操作，如赋值等的操作，一定不能 <code>global</code> 关键字的声明，否则会抛出 <code>UnboundLocalError</code> 错误</p>
+<h3 id="声明全局变量的好处"><a href="#声明全局变量的好处" class="headerlink" title="声明全局变量的好处"></a>声明全局变量的好处</h3><p>声明全局变量的好处是避免未定义局部变量的异常，来看下面的例子</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">global_arg = <span class="string">&quot;全局变量&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(global_arg)</span><br><span class="line">        global_arg = global_arg + <span class="string">&quot;局部变量&quot;</span></span><br><span class="line">    <span class="keyword">except</span> UnboundLocalError <span class="keyword">as</span> u:</span><br><span class="line">        <span class="built_in">print</span>(u)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/./images/python/data-type/6.png"></p>
+<h3 id="global-正确使用方法"><a href="#global-正确使用方法" class="headerlink" title="global 正确使用方法"></a>global 正确使用方法</h3><p>即使 <code>print(global_arg)</code>在前，依旧无法打印出来，因为后面语句有赋值操作，解释器默认以为 <code>global_arg</code> 为局部变量，而又没有声明全局变量，则会抛出异常</p>
+<p>以下为正确使用方法</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">global_arg = <span class="string">&quot;全局变量&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    <span class="keyword">global</span> global_arg</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(global_arg)</span><br><span class="line">        global_arg = global_arg + <span class="string">&quot;局部变量&quot;</span></span><br><span class="line">    <span class="keyword">except</span> UnboundLocalError <span class="keyword">as</span> u:</span><br><span class="line">        <span class="built_in">print</span>(u)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br><span class="line">    <span class="built_in">print</span>(global_arg)</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/./images/python/data-type/7.png"></p>
+<p>以上不难发现不会抛出异常了，并且全局变量的修改影响到了其他作用域</p>
+<h3 id="全局变量的其他性质"><a href="#全局变量的其他性质" class="headerlink" title="全局变量的其他性质"></a>全局变量的其他性质</h3><p>全局全量还有一个性质，可以通过导包的方式给其他 python 模块使用，这使得自定义变量得以很好的跨模块使用</p>
+<p>参考链接</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.byhy.net/tut/py/basic/14/">https://www.byhy.net/tut/py/basic/14/</a></li>
+</ul>
+<p>建立两个文件一个 test_global1.py，一个为 test_global2.py</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test_global1.py</span></span><br><span class="line"></span><br><span class="line">test_int = <span class="number">1</span></span><br><span class="line">test_list = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    <span class="keyword">global</span> test_int, test_list</span><br><span class="line">    test_int += <span class="number">1</span></span><br><span class="line">    test_list.append(<span class="string">&quot;new&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;test_global1.py中的test_int值:<span class="subst">&#123;test_int&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;test_global1.py中的test_int的id值:<span class="subst">&#123;<span class="built_in">id</span>(test_int)&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;===========================&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;test_global1.py中的test_list值:<span class="subst">&#123;test_list&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;test_global1.py中的test_list的id值:<span class="subst">&#123;<span class="built_in">id</span>(test_list)&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># test_global2.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> test_global1 <span class="keyword">import</span> test_int, test_list, test</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;test_global2.py的test_int值:<span class="subst">&#123;test_int&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;test_global2.py中的test_int的id值:<span class="subst">&#123;<span class="built_in">id</span>(test_int)&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;===========================&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;test_global2.py中的test_list值:<span class="subst">&#123;test_list&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;test_global2.py中的test_list的id值:<span class="subst">&#123;<span class="built_in">id</span>(test_list)&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;*&quot;</span>*<span class="number">80</span>)</span><br><span class="line">    test_()</span><br></pre></td></tr></table></figure>
+
+<p>我们运行 test_global2.py 的后的结果</p>
+<p><img src="/./images/python/data-type/8.png"></p>
+<p>我们发现成功导包成功了，但是这并不是通常意义的全局共享，而是 python 新开辟了命名空间，但是可变对象类型并没有开启新的内存空间，于是列表可以跟随变化。</p>
+<p><img src="/./images/python/data-type/9.png"></p>
+<h1 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h1><h2 id="概念和范围-2"><a href="#概念和范围-2" class="headerlink" title="概念和范围"></a>概念和范围</h2><p>局部变量其实是一个狭义的概念，是相对全局变量而言的。一般我们指函数内部新定义的变量为局部变量</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">arg = <span class="string">&quot;全局变量&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    arg = <span class="string">&quot;局部变量&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(arg)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br><span class="line">    <span class="built_in">print</span>(arg)</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/./images/python/data-type/10.png"></p>
+<p>以上不难发现，即使和全局变量重名，只要没有声明是 <code>global</code>，则它就是局部变量</p>
+<p>由于是局部变量，那么外部无法访问内部的局部变量，但是我们可以通过 闭包 的方式来访问内部的局部变量。</p>
+<ul>
+<li>参考<a target="_blank" rel="noopener" href="https://quip.com/fF8dAbqEwiiM">Python 函数详解</a> 关于函数闭包的详解</li>
+</ul>
+<h2 id="局部变量的声明"><a href="#局部变量的声明" class="headerlink" title="局部变量的声明"></a>局部变量的声明</h2><p>局部变量本质如果想作为内部结构的全局变量而进行修改，但是又不能用 <code>global</code> 修饰符，因为那会声明一个全局变量，那我们就会用到另外一个关键字 <code>nonlocal</code></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">arg = <span class="string">&quot;全局变量&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test1</span>():</span><br><span class="line">    arg = <span class="string">&quot;局部变量1&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inner_test1</span>():</span><br><span class="line">        arg = <span class="string">&quot;内部局部变量1&quot;</span></span><br><span class="line">        <span class="built_in">print</span>(arg)</span><br><span class="line"></span><br><span class="line">    inner_test1()</span><br><span class="line">    <span class="built_in">print</span>(arg)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test2</span>():</span><br><span class="line">    arg = <span class="string">&quot;局部变量2&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inner_test</span>():</span><br><span class="line">        <span class="keyword">nonlocal</span> arg</span><br><span class="line">        arg = <span class="string">&quot;内部局部变量2&quot;</span></span><br><span class="line">        <span class="built_in">print</span>(arg)</span><br><span class="line"></span><br><span class="line">    inner_test()</span><br><span class="line">    <span class="built_in">print</span>(arg)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test1()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;********************&quot;</span>)</span><br><span class="line">    test2()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;********************&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(arg)</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/./images/python/data-type/11.png"></p>
+<p>从以上返回信息我们不难看出如果不加 <code>nonlocal</code> 关键字，那么将不会对之前外部的局部变量进行修改。而添加了 <code>nonlocal</code> 关键字后可以对外层的局部变量进行修改了</p>
+<p>值得注意的是：<code>nonlocal</code> 属于就近原则，默认声明上一层局部变量，所以函数嵌套不宜过多。</p>
+<h1 id="类变量"><a href="#类变量" class="headerlink" title="类变量"></a>类变量</h1><h2 id="概念和范围-3"><a href="#概念和范围-3" class="headerlink" title="概念和范围"></a>概念和范围</h2><p>类变量本质是基于类的全局变量，但是它有独特的命名方式和访问权限</p>
+<p>类变量作用于是在全类，通过 <code>类名.变量名</code> 访问或者 <code>cls.变量名</code>或者<code> self.变量名</code>访问</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>:</span><br><span class="line">    class_arg = <span class="string">&quot;类变量&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test1</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(A.class_arg)</span><br><span class="line">        <span class="built_in">print</span>(self.class_arg)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test2</span>(<span class="params">cls</span>):</span><br><span class="line">        <span class="built_in">print</span>(A.class_arg)</span><br><span class="line">        <span class="built_in">print</span>(cls.class_arg)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    a = A()</span><br><span class="line">    <span class="built_in">print</span>(A.class_arg)</span><br><span class="line">    a.test1()</span><br><span class="line">    a.test2()</span><br></pre></td></tr></table></figure>
+
+<p>可以发现访问类变量的方式多种多样，单仅仅针对与该类或者它的子类或者外部用<code>类名.变量名</code> 的方式进行访问</p>
+<h2 id="类变量的命名特殊性"><a href="#类变量的命名特殊性" class="headerlink" title="类变量的命名特殊性"></a>类变量的命名特殊性</h2><p>类变量命名会影响其的作用域。</p>
+<p>用 __ 双下划线开头，且不以 __ 双下划线结尾的变量命名方式那么我们称之为私有的类变量，然而由于 python 的机制，这种私有只是显式的私有，并不能真正的私有</p>
+<ul>
+<li><p>参考<a target="_blank" rel="noopener" href="https://quip.com/fF8dAbqEwiiM">Python 函数详解</a>关于类方法的命名相关信息</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>:</span><br><span class="line">    __class_arg = <span class="string">&quot;私有类变量&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test1</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(A.__class_arg)</span><br><span class="line">        <span class="built_in">print</span>(self.__class_arg)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test2</span>(<span class="params">cls</span>):</span><br><span class="line">        <span class="built_in">print</span>(A.__class_arg)</span><br><span class="line">        <span class="built_in">print</span>(cls.__class_arg)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    a = A()</span><br><span class="line">    a.test1()</span><br><span class="line">    a.test2()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(A.__class_arg__)</span><br><span class="line">    <span class="keyword">except</span> AttributeError <span class="keyword">as</span> a:</span><br><span class="line">        <span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/./images/python/data-type/12.png"></p>
+</li>
+</ul>
+<p>​      以上不难看出通过私有化类变量后，外部对象 A 无法访问内部私有变量 <code>__class_arg</code></p>
+<h1 id="实例变量"><a href="#实例变量" class="headerlink" title="实例变量"></a>实例变量</h1><h2 id="概念和范围-4"><a href="#概念和范围-4" class="headerlink" title="概念和范围"></a>概念和范围</h2><p>实例变量一般来说当且仅当针对类而言。</p>
+<p>实例变量一般来说作用域也是整个类，但是实例变量的针对类的对象而言的，类变量是针对类而言的，虽然类的对象可以通过类指针的方式访问类变量，但是实例对象的访问必须是 <code>self.</code>，即对象本身去访问</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name</span>):</span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    a = A(<span class="string">&quot;实例变量&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(a.name)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(A.name)</span><br><span class="line">    <span class="keyword">except</span> AttributeError <span class="keyword">as</span> at:</span><br><span class="line">        <span class="built_in">print</span>(at)</span><br><span class="line">    <span class="built_in">print</span>(A(<span class="string">&quot;另一个实例变量&quot;</span>).name)</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/./images/python/data-type/13.png"></p>
+<p>从上面我们可以看到实例变量一般由类的实例对象取访问，如果类本身去访问会报 AttributeError</p>
+<h2 id="实例变量的特殊性"><a href="#实例变量的特殊性" class="headerlink" title="实例变量的特殊性"></a>实例变量的特殊性</h2><p>对于一个类来说，实例变量一般是在构造方法中定义，因为类的初始化过程中一般要主动调用构造方法 <code>__init__()</code>，但是也可以在其他类的方法里构造实例方法，但不建议这么使用，因为不一定会调用其他类的方法</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name</span>):</span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test</span>(<span class="params">self</span>):</span><br><span class="line">        self.age = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    a = A(<span class="string">&quot;实例变量&quot;</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(a.age)</span><br><span class="line">    <span class="keyword">except</span> AttributeError <span class="keyword">as</span> at:</span><br><span class="line">        <span class="built_in">print</span>(at)</span><br><span class="line">    a.test()</span><br><span class="line">    <span class="built_in">print</span>(a.age)</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/./images/python/data-type/14.png"></p>
+<p>以上不难发现可以在其他函数里定义实例变量，但是一定要运行了该函数才能被对象调用</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>python 一切皆为对象，那么类和函数依旧是对象，也可以作为变量传值。但是依旧会遵守上面相关的规定</p>
+<ul>
+<li>参考<a target="_blank" rel="noopener" href="https://quip.com/fF8dAbqEwiiM">Python 函数详解</a>关于高阶函数对于函数作为变量的解释</li>
+<li>参考<a target="_blank" rel="noopener" href="https://quip.com/Vs2BAkbPcrV4">Python 类详解</a>关于</li>
+</ul>
+
+        </article>
+        <section class="post-near">
+            <ul>
+                
+                    <li>上一篇: <a href="/2022/12/08/python/python%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 字符串常用方法</a></li>
+                
+                
+                    <li>下一篇: <a href="/2022/12/07/python/python%20%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 基本数据类型常用方法</a></li>
+                
+            </ul>
+        </section>
+        
+            <section class="post-tags">
+            <a class="-none-link" href="/tags/python/" rel="tag">python</a><a class="-none-link" href="/tags/%E5%8F%98%E9%87%8F/" rel="tag">变量</a>
+            </section>
+        
+    
+        <section class="post-author">
+        
+            <figure class="author-avatar">
+                <img src="https://github.com/junliangl/hexo-back/blob/master/images/icon/myhead.jpg?raw=true# 作者头像" alt="Junliangl" />
+            </figure>
+        
+            <div class="author-info">
+                <h4>Junliangl</h4>
+                <p>请在这里设置你的作者信息</p>
+            </div>
+        </section>
+    
+    </div>
+</main>
+
+    <footer>
+    <div class="buttons">
+        <a class="to-top" href="#"></a>
+    </div>
+    <div class="wrap min">
+        <section class="widget">
+            <div class="row">
+                <div class="col-m-4">
+                    <h3 class="title-recent">最新文章：</h3>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/">python 函数详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E9%A9%BB%E7%95%99%E6%9C%BA%E5%88%B6/">python 驻留机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6%20break%20%E5%92%8C%20continue/">python 循环控制 break 和 continue</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 字符串常用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/">python 变量的作用域</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/07/python/python%20%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 基本数据类型常用方法</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-date">历史：</h3>
+                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-tags">标签云：</h3>
+                    <a href="/tags/continer/" style="font-size: 1020;">continer</a> <a href="/tags/pytest/" style="font-size: 1020;">pytest</a> <a href="/tags/python/" style="font-size: 2020;">python</a> <a href="/tags/%E5%87%BD%E6%95%B0/" style="font-size: 1020;">函数</a> <a href="/tags/%E5%8F%98%E9%87%8F/" style="font-size: 1020;">变量</a> <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 1020;">基本数据类型</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 1020;">字符串</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" style="font-size: 1520;">常用方法</a> <a href="/tags/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B/" style="font-size: 1020;">开发模型</a> <a href="/tags/%E5%BE%AA%E7%8E%AF/" style="font-size: 1020;">循环</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 1020;">方法</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" style="font-size: 1020;">测试工具</a>
+                </div>
+            </div>
+        </section>
+        <section class="sub-footer">
+            <p>© 2022 <a href="/">onepiece</a>. All Rights Reserved. Theme By <a href="https://github.com/Dreamer-Paul/Hingle" target="_blank" rel="nofollow">Hingle</a>.</p>
+        </section>
+    </div>
+</footer>
+
+
+<script src="/static/kico.js"></script>
+<script src="/static/hingle.js"></script>
+
+
+<script>var hingle = new Paul_Hingle({"copyright":true,"night":true});</script>
+
+  </body>
+</html>

@@ -41,7 +41,7 @@
             <div class="sub-menu">
 				<a href="/categories/python/">python</a>
 				<a href="/categories/linux">linux</a>
-				<a href="/categories/test-theory">测试理论</a>
+				<a href="/categories/test">测试</a>
             </div>
         </div>
         
@@ -63,62 +63,37 @@
         </section>
         <article class="post-content">
         
-            <ul>
-<li><p>python 运算符分为 算术运算符、赋值运算符、布尔运算符、比较运算符、位运算符</p>
+            <h1 id="运算符的分类"><a href="#运算符的分类" class="headerlink" title="运算符的分类"></a>运算符的分类</h1><p>python 运算符分为 算术运算符、赋值运算符、比较运算符、布尔运算符、位运算符</p>
+<h2 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h2><p>算术运算符分为 标准运算符、取余运算符、幂运算符</p>
 <ul>
-<li><p>算术运算符分为 标准运算符、取余运算符、幂运算符</p>
-<ul>
-<li><p>算术运算符满足以下规则</p>
-<ul>
+<li>算术运算符满足以下规则<ul>
 <li><img src="/./images/python/operator/1.png"></li>
 </ul>
 </li>
-<li><p>标准运算符</p>
-<ul>
-<li><blockquote>
+</ul>
+<h3 id="标准运算符"><a href="#标准运算符" class="headerlink" title="标准运算符"></a>标准运算符</h3><blockquote>
 <p>+ -  *  /  //</p>
 </blockquote>
-</li>
-<li><span id="more"></span>
-</li>
-<li><p>其中为整除运算符，若两者异号，则向下取整</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    value1 = <span class="number">20</span>/-<span class="number">3</span></span><br><span class="line">    value2 = <span class="number">20</span>//-<span class="number">3</span></span><br><span class="line">    <span class="built_in">print</span>(value1)</span><br><span class="line">    <span class="built_in">print</span>(value2)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
-<ul>
-<li>返回<ul>
-<li><img src="/./images/python/operator/2.png"></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>% 为取余运算符。规则是同号则直接取余数。异号余数 &#x3D; 被除数 - 除数*商</p>
-<ul>
-<li><p>其中以上的 商 为两者整除而来 如  -20%3的商为 -20&#x2F;&#x2F;3</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    value1 = -<span class="number">20</span>%-<span class="number">3</span></span><br><span class="line">    value2 = -<span class="number">20</span>%<span class="number">3</span></span><br><span class="line">    value3 = <span class="number">20</span>%-<span class="number">3</span></span><br><span class="line">    <span class="built_in">print</span>(value1)</span><br><span class="line">    <span class="built_in">print</span>(value2)</span><br><span class="line">    <span class="built_in">print</span>(value3)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>返回</p>
-<ul>
-<li><img src="/./images/python/operator/3.png"></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>为幂运算符，a</strong>b 表示 a 的 b 次 幂</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    value1 = -<span class="number">2</span>**<span class="number">3</span></span><br><span class="line">    value2 = -<span class="number">2</span>**-<span class="number">2</span></span><br><span class="line">    <span class="built_in">print</span>(value1)</span><br><span class="line">    <span class="built_in">print</span>(value2)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
 
+<h4 id="整除运算符"><a href="#整除运算符" class="headerlink" title="整除运算符"></a>整除运算符</h4><p>其中/为整除运算符，若两者异号，则向下取整</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    value1 = <span class="number">20</span>/-<span class="number">3</span></span><br><span class="line">    value2 = <span class="number">20</span>//-<span class="number">3</span></span><br><span class="line">    <span class="built_in">print</span>(value1)</span><br><span class="line">    <span class="built_in">print</span>(value2)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/./images/python/operator/2.png"></p>
+<h4 id="取余运算符"><a href="#取余运算符" class="headerlink" title="取余运算符"></a>取余运算符</h4><p>% 为取余运算符。规则是同号则直接取余数。异号余数 &#x3D; 被除数 - 除数*商</p>
+<p>其中以上的 商 为两者整除而来 如  -20%3的商为 -20&#x2F;&#x2F;3</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    value1 = -<span class="number">20</span>%-<span class="number">3</span></span><br><span class="line">    value2 = -<span class="number">20</span>%<span class="number">3</span></span><br><span class="line">    value3 = <span class="number">20</span>%-<span class="number">3</span></span><br><span class="line">    <span class="built_in">print</span>(value1)</span><br><span class="line">    <span class="built_in">print</span>(value2)</span><br><span class="line">    <span class="built_in">print</span>(value3)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/./images/python/operator/3.png"></p>
+<h4 id="幂运算符"><a href="#幂运算符" class="headerlink" title="幂运算符"></a>幂运算符</h4><p>**为幂运算符，a**b 表示 a 的 b 次 幂</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    value1 = -<span class="number">2</span>**<span class="number">3</span></span><br><span class="line">    value2 = -<span class="number">2</span>**-<span class="number">2</span></span><br><span class="line">    <span class="built_in">print</span>(value1)</span><br><span class="line">    <span class="built_in">print</span>(value2)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/./images/python/operator/4.png"></p>
+<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><p>&#x3D; 即为赋值运算符。</p>
 <ul>
-<li>返回<ul>
-<li><img src="/./images/python/operator/4.png"></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>赋值运算符</p>
-<ul>
-<li>&#x3D; 即为赋值运算符。<ul>
 <li><p>执行顺序为 从右往左 a&#x3D;b&#x3D;c&#x3D;1</p>
 </li>
 <li><p>支持参数赋值 a +&#x3D; b，a &#x2F;&#x2F;&#x3D; b …..</p>
@@ -126,89 +101,48 @@
 <li><p>支持系列解包赋值 a，b &#x3D; b， a，常用于交换两者的值</p>
   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    value1 = <span class="number">1</span></span><br><span class="line">    value2 = <span class="number">2</span></span><br><span class="line">    value1, value2 = value2, value1</span><br><span class="line">    <span class="built_in">print</span>(value1)</span><br><span class="line">    <span class="built_in">print</span>(value2)</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>返回<ul>
-<li><img src="/./images/python/operator/5.png"></li>
-</ul>
+<p>  返回</p>
+<p>  <img src="/./images/python/operator/5.png"></p>
 </li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>比较运算符</p>
-<ul>
-<li><blockquote>
+<h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><blockquote>
 <p>&gt;，&lt;， &gt;&#x3D;，&lt;&#x3D;，!&#x3D;，&#x3D;&#x3D;</p>
 </blockquote>
-<ul>
-<li>返回值为 bool 类型，比较的是两者的 _value 值</li>
-</ul>
-</li>
-<li><p>is ，is not。is 代表 是 id 相等，is not 代表 id 不相等</p>
-<ul>
-<li><p>返回值为 bool 类型，比较的是两者的 id 值</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    value1 = <span class="number">1</span></span><br><span class="line">    value2 = <span class="number">2</span></span><br><span class="line">    <span class="built_in">print</span>(value1 == value2)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-----------------------&quot;</span>)</span><br><span class="line">    value3 = [<span class="number">1</span>, [<span class="number">1</span>, <span class="number">2</span>]]</span><br><span class="line">    value4 = [<span class="number">1</span>, [<span class="number">1</span>, <span class="number">2</span>]]</span><br><span class="line">    value5 = value3</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(value3), <span class="built_in">id</span>(value4), <span class="built_in">id</span>(value5))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-----------------------&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(value3 <span class="keyword">is</span> value4)</span><br><span class="line">    <span class="built_in">print</span>(value3 <span class="keyword">is</span> <span class="keyword">not</span> value5)</span><br><span class="line">    <span class="built_in">print</span>(value4 <span class="keyword">is</span> <span class="keyword">not</span> value5)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>返回</p>
-<ul>
-<li><img src="/./images/python/operator/6.png"></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>bool 运算符</p>
-<ul>
-<li><p>python 一切对象都有对应的 bool 值</p>
-<ul>
-<li><img src="/./images/python/operator/7.png"></li>
-</ul>
-</li>
-<li><p>and ，or，not，in，not in （其中 in， not in 表示是否在序列中）</p>
+<p>返回值为 bool 类型，比较的是两者的 _value 值</p>
+<p>is ，is not。is 代表 是 id 相等，is not 代表 id 不相等</p>
+<p>返回值为 bool 类型，比较的是两者的 id 值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    value1 = <span class="number">1</span></span><br><span class="line">    value2 = <span class="number">2</span></span><br><span class="line">    <span class="built_in">print</span>(value1 == value2)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-----------------------&quot;</span>)</span><br><span class="line">    value3 = [<span class="number">1</span>, [<span class="number">1</span>, <span class="number">2</span>]]</span><br><span class="line">    value4 = [<span class="number">1</span>, [<span class="number">1</span>, <span class="number">2</span>]]</span><br><span class="line">    value5 = value3</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">id</span>(value3), <span class="built_in">id</span>(value4), <span class="built_in">id</span>(value5))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-----------------------&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(value3 <span class="keyword">is</span> value4)</span><br><span class="line">    <span class="built_in">print</span>(value3 <span class="keyword">is</span> <span class="keyword">not</span> value5)</span><br><span class="line">    <span class="built_in">print</span>(value4 <span class="keyword">is</span> <span class="keyword">not</span> value5)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/./images/python/operator/6.png"></p>
+<h2 id="bool-运算符"><a href="#bool-运算符" class="headerlink" title="bool 运算符"></a>bool 运算符</h2><p>python 一切对象都有对应的 bool 值</p>
+<p><img src="/./images/python/operator/7.png"></p>
+<p>and ，or，not，in，not in （其中 in， not in 表示是否在序列中）</p>
 <ul>
 <li><p>其中 and 和 or 拥有短路性。即 a and b a为false，b不再进行。同理 a or b，a为真 b不再进行</p>
   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">m = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test1</span>():</span><br><span class="line">    m.clear()</span><br><span class="line">    <span class="built_in">print</span>(m)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test2</span>():</span><br><span class="line">    m.append(<span class="number">1</span>)</span><br><span class="line">    <span class="built_in">print</span>(m)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_bool</span>():</span><br><span class="line">    a = <span class="literal">True</span></span><br><span class="line">    b = <span class="literal">False</span></span><br><span class="line">    <span class="built_in">print</span>(b <span class="keyword">and</span> test1())</span><br><span class="line">    <span class="built_in">print</span>(a <span class="keyword">or</span> test2())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_bool()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>返回</p>
-<ul>
-<li><img src="/./images/python/operator/8.png"></li>
-</ul>
+
+<p>  返回</p>
+<p>  <img src="/./images/python/operator/8.png"></p>
 </li>
 <li><p>注意 a and b 其中 a，b不一定是bool 类型。a and b 返回值也不一定是 bool 类型</p>
   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="literal">None</span> <span class="keyword">and</span> <span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">1</span> <span class="keyword">and</span> <span class="string">&#x27;hello&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="literal">None</span> <span class="keyword">or</span> <span class="literal">None</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;hello&quot;</span> <span class="keyword">or</span> <span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<p>  返回</p>
+<p>  <img src="/./images/python/operator/9.png"></p>
+<p>  实际中不确定 a，b 类型情况下想返回 bool 类型建议 bool(a) and bool(b) 这样能确定100%返回 bool 类型</p>
+</li>
+</ul>
+<h2 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h2><p>&amp; 按位与。| 按位或。&gt;&gt; 按位右移。&lt;&lt;按位左移。^为异或。~为按位取反</p>
+<p>以下为运算规则</p>
+<p><img src="/./images/python/operator/10.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">3</span> &amp; <span class="number">6</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">3</span> | <span class="number">6</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">3</span> &gt;&gt; <span class="number">2</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">3</span> &lt;&lt; <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/./images/python/operator/11.png"></p>
+<p>注意，参与运算要按照补码进行计算</p>
+<p>原码，反码，补码规则如下</p>
 <ul>
-<li>返回<ul>
-<li><img src="/./images/python/operator/9.png"></li>
-</ul>
-</li>
-<li>实际中不确定 a，b 类型情况下想返回 bool 类型建议 bool(a) and bool(b) 这样能确定100%返回 bool 类型</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>位运算符</p>
-<ul>
-<li><p>&amp; 按位与。| 按位或。&gt;&gt; 按位右移。&lt;&lt;按位左移。^为异或。~为按位取反</p>
-</li>
-<li><p>以下为运算规则</p>
-<ul>
-<li><img src="/./images/python/operator/10.png"></li>
-</ul>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">3</span> &amp; <span class="number">6</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">3</span> | <span class="number">6</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">3</span> &gt;&gt; <span class="number">2</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">3</span> &lt;&lt; <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>返回</p>
-<ul>
-<li><img src="/./images/python/operator/11.png"></li>
-</ul>
-</li>
-<li><p>注意，参与运算要按照补码进行计算</p>
-<ul>
-<li>原码，反码，补码规则如下<ul>
 <li>正数<ul>
 <li>原码，反码，补码相同。符号位都为0</li>
 </ul>
@@ -218,77 +152,38 @@
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-</li>
-<li><p>根据以上规则我们可以计算出负数的 按位与 和 按位或</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    <span class="built_in">print</span>(-<span class="number">3</span> &amp; -<span class="number">6</span>)</span><br><span class="line">    <span class="built_in">print</span>(-<span class="number">3</span> | -<span class="number">6</span>)</span><br><span class="line">    <span class="built_in">print</span>(-<span class="number">3</span> &gt;&gt; <span class="number">1</span>)</span><br><span class="line">    <span class="built_in">print</span>(-<span class="number">3</span> &lt;&lt; <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+<p>根据以上规则我们可以计算出负数的 按位与 和 按位或</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    <span class="built_in">print</span>(-<span class="number">3</span> &amp; -<span class="number">6</span>)</span><br><span class="line">    <span class="built_in">print</span>(-<span class="number">3</span> | -<span class="number">6</span>)</span><br><span class="line">    <span class="built_in">print</span>(-<span class="number">3</span> &gt;&gt; <span class="number">1</span>)</span><br><span class="line">    <span class="built_in">print</span>(-<span class="number">3</span> &lt;&lt; <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/./images/python/operator/12.png"></p>
+<p>验算</p>
+<p><img src="/./images/python/operator/13.png"></p>
+<p>同理可以算出其他值。</p>
 <ul>
-<li>返回<ul>
-<li><img src="/./images/python/operator/12.png"></li>
-</ul>
-</li>
-<li>验算<ul>
-<li><img src="/./images/python/operator/13.png"></li>
-<li>同理可以算出其他值。<ul>
 <li>注意移位运算符符号位补位为当前符号。即符号位永远保持同号</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>~ 按位取反</p>
-<ul>
-<li><p>值得注意的是按位取反符号位要参与</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    <span class="built_in">print</span>(~-<span class="number">3</span>)</span><br><span class="line">    <span class="built_in">print</span>(~<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>返回</p>
-<ul>
-<li><img src="/./images/python/operator/14.png"></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>^异或</p>
-<ul>
-<li><p>即A^B &#x3D; （A and !B）or (!A and B)</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">5</span> ^ -<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>  ​    </p>
-<ul>
-<li><p>返回</p>
-<ul>
-<li><img src="/./images/python/operator/15.png"></li>
-</ul>
-</li>
-<li><p>异或可以不借助第三方参数进行交换值</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">exchange</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="built_in">print</span>(a, b)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-----------------&quot;</span>)</span><br><span class="line">    a = a ^ b</span><br><span class="line">    b = a ^ b</span><br><span class="line">    a = a ^ b</span><br><span class="line">    <span class="built_in">print</span>(a, b)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    exchange(<span class="number">6</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>返回<ul>
-<li><img src="/./images/python/operator/16.png"></li>
-<li><img src="/./images/python/operator/17.png"></li>
-</ul>
-</li>
-<li>证明</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>运算符优先级参考如下：</p>
-<ul>
-<li><img src="/./images/python/operator/18.png"></li>
-<li>python3 官方参考<ul>
-<li><img src="/./images/python/operator/19.png"></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<h3 id="按位取反"><a href="#按位取反" class="headerlink" title="~  按位取反"></a>~  按位取反</h3><p>值得注意的是按位取反符号位要参与</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    <span class="built_in">print</span>(~-<span class="number">3</span>)</span><br><span class="line">    <span class="built_in">print</span>(~<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/./images/python/operator/14.png"></p>
+<h3 id="异或"><a href="#异或" class="headerlink" title="^异或"></a>^异或</h3><p>即A^B &#x3D; （A and !B）or (!A and B)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">5</span> ^ -<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/./images/python/operator/15.png"></p>
+<p>异或可以不借助第三方参数进行交换值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">exchange</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="built_in">print</span>(a, b)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-----------------&quot;</span>)</span><br><span class="line">    a = a ^ b</span><br><span class="line">    b = a ^ b</span><br><span class="line">    a = a ^ b</span><br><span class="line">    <span class="built_in">print</span>(a, b)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    exchange(<span class="number">6</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/./images/python/operator/16.png"></p>
+<p>证明</p>
+<p><img src="/./images/python/operator/17.png"></p>
+<h1 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h1><p>运算符优先级参考如下：</p>
+<p><img src="/./images/python/operator/18.png"></p>
+<p>python3 官方参考</p>
+<p><img src="/./images/python/operator/19.png"></p>
 
         </article>
         <section class="post-near">
@@ -303,7 +198,7 @@
         </section>
         
             <section class="post-tags">
-            <a class="-none-link" href="/tags/python/" rel="tag">python</a>
+            <a class="-none-link" href="/tags/python/" rel="tag">python</a><a class="-none-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">运算符</a>
             </section>
         
     
@@ -331,7 +226,7 @@
             <div class="row">
                 <div class="col-m-4">
                     <h3 class="title-recent">最新文章：</h3>
-                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/12/07/python/python%20%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 基本数据类型常用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/python/python%20%E8%BF%90%E7%AE%97%E7%AC%A6/">python 运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/python/pytest/">Python pytest 模块单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/linux/docker/">docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/">测试用例设计方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/05/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/%E6%AD%A3%E4%BA%A4%E8%A1%A8%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">正交表工具使用方法</a></li></ul>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/">python 函数详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E9%A9%BB%E7%95%99%E6%9C%BA%E5%88%B6/">python 驻留机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6%20break%20%E5%92%8C%20continue/">python 循环控制 break 和 continue</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 字符串常用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/">python 变量的作用域</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/07/python/python%20%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 基本数据类型常用方法</a></li></ul>
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-date">历史：</h3>
@@ -339,7 +234,7 @@
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-tags">标签云：</h3>
-                    <a href="/tags/python/" style="font-size: 1020;">python</a>
+                    <a href="/tags/continer/" style="font-size: 1020;">continer</a> <a href="/tags/pytest/" style="font-size: 1020;">pytest</a> <a href="/tags/python/" style="font-size: 2020;">python</a> <a href="/tags/%E5%87%BD%E6%95%B0/" style="font-size: 1020;">函数</a> <a href="/tags/%E5%8F%98%E9%87%8F/" style="font-size: 1020;">变量</a> <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 1020;">基本数据类型</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 1020;">字符串</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" style="font-size: 1520;">常用方法</a> <a href="/tags/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B/" style="font-size: 1020;">开发模型</a> <a href="/tags/%E5%BE%AA%E7%8E%AF/" style="font-size: 1020;">循环</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 1020;">方法</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" style="font-size: 1020;">测试工具</a>
                 </div>
             </div>
         </section>
