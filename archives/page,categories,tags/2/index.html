@@ -60,19 +60,97 @@
     
     <div class="post-item">
         <h2>
+            <a href="/2022/12/08/python/python%20%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6%20break%20%E5%92%8C%20continue/">python 循环控制 break 和 continue</a>
+        </h2>
+    
+        <p>一般来说 break 和 continute 控制的是本层循环，不影响外层循环，如若要退出则使用 return 语句进行
+
+12345678910def test():    for i in range(2):        for j in range(6):            print(f&amp;quot;j = &amp;#123;j&amp;#125;&amp;quot;)            if j &amp;gt; 2:                break        print(f&amp;quot;i = &amp;#123;i&amp;#125;&amp;quot;)if __name__ == &amp;#x27;__main__&amp;#x27;:    test()
+
+返回
+
+由上看出，即时 break 了，依旧不会跳过外层循环</p>
+    
+        <div class="post-meta">
+            <time class="date">2022.12.08</time>
+            
+                <span class="category"><a class="category-link" href="/categories/python/">python</a></span>
+            
+            
+                <span class="tags"><a class="-none-link" href="/tags/python/" rel="tag">python</a>，<a class="-none-link" href="/tags/%E5%BE%AA%E7%8E%AF/" rel="tag">循环</a></span>
+            
+        </div>
+    </div>
+    
+    <div class="post-item">
+        <h2>
+            <a href="/2022/12/08/python/python%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 字符串常用方法</a>
+        </h2>
+    
+        <p>参考链接
+https://www.bilibili.com/video/BV1wD4y1o7AS?p=78&amp;amp;vd_source=f9937d98d0a8cc08ef5248c3c127d588
+
+其他类型常用方法具体可以参考以下文档
+
+python 基本数据类型常用方法
+
+
+</p>
+    
+        <div class="post-meta">
+            <time class="date">2022.12.08</time>
+            
+                <span class="category"><a class="category-link" href="/categories/python/">python</a></span>
+            
+            
+                <span class="tags"><a class="-none-link" href="/tags/python/" rel="tag">python</a>，<a class="-none-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a>，<a class="-none-link" href="/tags/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" rel="tag">常用方法</a></span>
+            
+        </div>
+    </div>
+    
+    <div class="post-item">
+        <h2>
+            <a href="/2022/12/08/python/python%20%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/">python 变量的作用域</a>
+        </h2>
+    
+        <p>参考链接
+https://www.bilibili.com/video/BV1xv4y1S7ov/?spm_id_from=333.880.my_history.page.click&amp;amp;vd_source=f9937d98d0a8cc08ef5248c3c127d588
+
+https://www.bilibili.com/video/BV1vQ4y1D7Ct/?p=2&amp;amp;spm_id_from=pageDriver&amp;amp;vd_source=f9937d98d0a8cc08ef5248c3c127d588
+
+https://www.runoob.com/python3/python3-namespace-scope.html
+
+https://blog.csdn.net/cadi2011/article/details/52457754
+
+
+
+变量分为 内置变量，全局变量，类变量，实例变量，局部变量
+python 使用变量作用域一般要遵循 LEGB（本地，上层嵌套，全局，内置）</p>
+    
+        <div class="post-meta">
+            <time class="date">2022.12.08</time>
+            
+                <span class="category"><a class="category-link" href="/categories/python/">python</a></span>
+            
+            
+                <span class="tags"><a class="-none-link" href="/tags/python/" rel="tag">python</a>，<a class="-none-link" href="/tags/%E5%8F%98%E9%87%8F/" rel="tag">变量</a></span>
+            
+        </div>
+    </div>
+    
+    <div class="post-item">
+        <h2>
             <a href="/2022/12/07/python/python%20%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 基本数据类型常用方法</a>
         </h2>
     
         <p>参考链接以下数据类型有些内容会涉及内存驻留机制，请参考
 
-Python 驻留机制
+python 驻留机制
 
 https://www.cnblogs.com/laizhenghua/articles/12875044.html
 
 
-基本数据类型分类基本数据类型有 数字类型（int，float，complex），字符串类型（str），列表类型（list）元组（tuple），字典（dict），集合（set）
-
-</p>
+基本数据类型分类基本数据类型有 数字类型（int，float，complex），字符串类型（str），列表类型（list）元组（tuple），字典（dict），集合（set）</p>
     
         <div class="post-meta">
             <time class="date">2022.12.07</time>
@@ -113,72 +191,10 @@ https://www.cnblogs.com/laizhenghua/articles/12875044.html
         </div>
     </div>
     
-    <div class="post-item">
-        <h2>
-            <a href="/2022/12/05/python/pytest/">Python pytest 模块单元测试</a>
-        </h2>
-    
-        <p>pytest 准备工作准备 requirements.txt 写入以下插件和包，
-123456`pytest``pytest-html``pytest-xdist``pytest-ordering``pytest-rerunfailures``allure-pytest`
-
-安装插件
-
-pip install -r requirements.txt
-</p>
-    
-        <div class="post-meta">
-            <time class="date">2022.12.05</time>
-            
-                <span class="category"><a class="category-link" href="/categories/python/">python</a>，<a class="category-link" href="/categories/test/">测试</a></span>
-            
-            
-                <span class="tags"><a class="-none-link" href="/tags/pytest/" rel="tag">pytest</a>，<a class="-none-link" href="/tags/python/" rel="tag">python</a>，<a class="-none-link" href="/tags/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/" rel="tag">测试框架</a></span>
-            
-        </div>
-    </div>
-    
-    <div class="post-item">
-        <h2>
-            <a href="/2022/12/05/linux/docker/">docker</a>
-        </h2>
-    
-        <p>docker详解</p>
-    
-        <div class="post-meta">
-            <time class="date">2022.12.05</time>
-            
-                <span class="category"><a class="category-link" href="/categories/linux/">linux</a></span>
-            
-            
-                <span class="tags"><a class="-none-link" href="/tags/continer/" rel="tag">continer</a></span>
-            
-        </div>
-    </div>
-    
-    <div class="post-item">
-        <h2>
-            <a href="/2022/12/05/%E6%B5%8B%E8%AF%95/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/">测试用例设计方法</a>
-        </h2>
-    
-        <p>测试用例的分类分为黑盒测试和白盒测试两种
-黑盒测试
-白盒测试</p>
-    
-        <div class="post-meta">
-            <time class="date">2022.12.05</time>
-            
-                <span class="category"><a class="category-link" href="/categories/test/">测试</a></span>
-            
-            
-                <span class="tags"><a class="-none-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" rel="tag">测试用例</a>，<a class="-none-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1/" rel="tag">测试用例设计</a></span>
-            
-        </div>
-    </div>
-    
 </section>
 
         <section class="page-navigator">
-            <a class="extend prev" rel="prev" href="/archives/">«</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page,categories,tags/3/">3</a><a class="extend next" rel="next" href="/archives/page,categories,tags/3/">»</a>
+            <a class="extend prev" rel="prev" href="/archives/">«</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page,categories,tags/3/">3</a><a class="page-number" href="/archives/page,categories,tags/4/">4</a><a class="extend next" rel="next" href="/archives/page,categories,tags/3/">»</a>
         </section>
     </div>
 </main>
@@ -192,7 +208,7 @@ pip install -r requirements.txt
             <div class="row">
                 <div class="col-m-4">
                     <h3 class="title-recent">最新文章：</h3>
-                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/">python 函数详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E9%A9%BB%E7%95%99%E6%9C%BA%E5%88%B6/">python 驻留机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6%20break%20%E5%92%8C%20continue/">python 循环控制 break 和 continue</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 字符串常用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/">python 变量的作用域</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/07/python/python%20%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">python 基本数据类型常用方法</a></li></ul>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/12/10/python/python%20%E7%B1%BB%E8%AF%A6%E8%A7%A3/">python 类详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/10/python/python%20%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/">python 内存详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/10/python/python%20%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8/">python 迭代器和生成器</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/">python 函数详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E9%A9%BB%E7%95%99%E6%9C%BA%E5%88%B6/">python 驻留机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6%20break%20%E5%92%8C%20continue/">python 循环控制 break 和 continue</a></li></ul>
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-date">历史：</h3>
@@ -200,7 +216,7 @@ pip install -r requirements.txt
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-tags">标签云：</h3>
-                    <a href="/tags/continer/" style="font-size: 1020;">continer</a> <a href="/tags/pytest/" style="font-size: 1020;">pytest</a> <a href="/tags/python/" style="font-size: 2020;">python</a> <a href="/tags/%E5%87%BD%E6%95%B0/" style="font-size: 1020;">函数</a> <a href="/tags/%E5%8F%98%E9%87%8F/" style="font-size: 1020;">变量</a> <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 1020;">基本数据类型</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 1020;">字符串</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" style="font-size: 1520;">常用方法</a> <a href="/tags/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B/" style="font-size: 1020;">开发模型</a> <a href="/tags/%E5%BE%AA%E7%8E%AF/" style="font-size: 1020;">循环</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 1020;">方法</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" style="font-size: 1020;">测试工具</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/" style="font-size: 1020;">测试框架</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" style="font-size: 1020;">测试用例</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1/" style="font-size: 1020;">测试用例设计</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" style="font-size: 1020;">虚拟环境</a> <a href="/tags/%E8%B4%A8%E9%87%8F%E6%A8%A1%E5%9E%8B/" style="font-size: 1020;">质量模型</a> <a href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" style="font-size: 1020;">运算符</a> <a href="/tags/%E9%A9%BB%E7%95%99%E6%9C%BA%E5%88%B6/" style="font-size: 1020;">驻留机制</a>
+                    <a href="/tags/continer/" style="font-size: 1020;">continer</a> <a href="/tags/pytest/" style="font-size: 1020;">pytest</a> <a href="/tags/python/" style="font-size: 2020;">python</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%9C%BA%E5%88%B6/" style="font-size: 1020;">内存机制</a> <a href="/tags/%E5%87%BD%E6%95%B0/" style="font-size: 1020;">函数</a> <a href="/tags/%E5%8F%98%E9%87%8F/" style="font-size: 1020;">变量</a> <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 1020;">基本数据类型</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 1020;">字符串</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" style="font-size: 1520;">常用方法</a> <a href="/tags/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B/" style="font-size: 1020;">开发模型</a> <a href="/tags/%E5%BE%AA%E7%8E%AF/" style="font-size: 1020;">循环</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 1020;">方法</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" style="font-size: 1520;">测试工具</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" style="font-size: 1020;">测试用例</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1/" style="font-size: 1020;">测试用例设计</a> <a href="/tags/%E7%B1%BB/" style="font-size: 1020;">类</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" style="font-size: 1020;">虚拟环境</a> <a href="/tags/%E8%B4%A8%E9%87%8F%E6%A8%A1%E5%9E%8B/" style="font-size: 1020;">质量模型</a> <a href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" style="font-size: 1020;">运算符</a> <a href="/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8/" style="font-size: 1020;">迭代器和生成器</a>
                 </div>
             </div>
         </section>
