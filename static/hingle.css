@@ -982,3 +982,23 @@ pre .javascript .function {
         margin-bottom: 0;
     }
 }
+
+form input.st-default-search-input {
+    font-size: 12px;
+    padding: 4px 9px 4px 27px;
+    height: 20px;
+    width: 140px;
+    color: #666;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    border-radius: 15px;
+    -webkit-box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.17);
+    -moz-box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.17);
+    box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.17);
+    outline: none;
+    background: #fcfcfc url(/img/search.png) no-repeat 7px 7px;
+}
+
