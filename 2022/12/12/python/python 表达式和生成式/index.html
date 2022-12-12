@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     
+    <meta charset="UTF-8">
+    <title>python 表达式和生成式 - onepiece</title>
+    <link rel="shortcut icon" href="/static/img/icon.png">
+    <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
+    
+<link rel="stylesheet" href="/static/kico.css">
+<link rel="stylesheet" href="/static/hingle.css">
+
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
+    <meta property="og:site_name" content="onepiece">
+    <meta property="og:title" content="python 表达式和生成式"/>
+    
+    <style>body:before{ content: ''; background-image: url(https://github.com/junliangl/hexo-back/blob/master/images/images/%E6%9D%8F%E6%9E%9D.jpg?raw=true) }</style>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body class="dark-theme">
+    <header>
+    <div class="head-title">
+        <h4>onepiece</h4>
+    </div>
+    <div class="head-action">
+        <div class="toggle-btn"></div>
+        <div class="light-btn"></div>
+        <div class="search-btn"></div>
+    </div>
+    <form class="head-search">
+        <input type="text" name="s" placeholder="暂时不支持搜索哦">
+    </form>      
+    <nav class="head-menu">
+        <a href="/">首页</a>
+        <div class="has-child">
+            <a>分类</a>
+            <div class="sub-menu">
+				<a href="/categories/python/">python</a>
+				<a href="/categories/linux">linux</a>
+				<a href="/categories/test">测试</a>
+            </div>
+        </div>
+        
+            <a href="/about">关于我</a>
+        
+    </nav>
+</header>
+
+    <main>
+    <div class="wrap min">
+        <section class="post-title">
+            <h2>python 表达式和生成式</h2>
+            <div class="post-meta">
+                <time class="date">2022.12.12</time>
+            
+                <span class="category"><a class="category-link" href="/categories/python/">python</a></span>
+            
+            </div>
+        </section>
+        <article class="post-content">
+        
+            <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19g41197ro/?spm_id_from=333.999.0.0&amp;vd_source=f9937d98d0a8cc08ef5248c3c127d588">https://www.bilibili.com/video/BV19g41197ro/?spm_id_from=333.999.0.0&amp;vd_source=f9937d98d0a8cc08ef5248c3c127d588</a></li>
+</ul>
+<h1 id="解包（解压赋值）"><a href="#解包（解压赋值）" class="headerlink" title="解包（解压赋值）"></a>解包（解压赋值）</h1><p>python 赋值语句一般用 &#x3D; 进行。常用的特殊赋值语句一般有交换赋值 —&gt; <code>a，b = b，a</code>这样就能快速地进行变量的交换，特殊的是解压赋值是针对与等号右边是一个 iterable 对象的时候进行的，前提是这个 iterable 一定返回的是一个迭代器对象</p>
+<ul>
+<li>具体什么是 iterable 请参考 <a href="/2022/12/10/python/python%20%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8/" title="python 迭代器和生成器">python 迭代器和生成器</a></li>
+</ul>
+<h2 id="一般的使用方法"><a href="#一般的使用方法" class="headerlink" title="一般的使用方法"></a>一般的使用方法</h2><p>变量1，变量2，……，变量n &#x3D; iterable</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_generative</span>():</span><br><span class="line">    first, second, third = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">    <span class="built_in">print</span>(first)</span><br><span class="line">    <span class="built_in">print</span>(second)</span><br><span class="line">    <span class="built_in">print</span>(third)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_generative()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/generative/2.png"></p>
+<ul>
+<li>我们看出了元组 (1，2，3) 被解压到了 first，second，third之中</li>
+</ul>
+<p>如果变量超过序列数，则会抛出 ValueError 异常</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_generative</span>():</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        first, second, third, fourth = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">    <span class="keyword">except</span> ValueError <span class="keyword">as</span> v:</span><br><span class="line">        <span class="built_in">print</span>(v)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_generative()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/generative/3.png"></p>
+<h2 id="对自定义的迭代器解包"><a href="#对自定义的迭代器解包" class="headerlink" title="对自定义的迭代器解包"></a>对自定义的迭代器解包</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Iterator</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.count = -<span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__next__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> self.count &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">raise</span> StopIteration</span><br><span class="line">        self.count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> self.count</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_generative</span>(<span class="params">iterable</span>):</span><br><span class="line"></span><br><span class="line">    first, second = iterable</span><br><span class="line">    <span class="built_in">print</span>(first)</span><br><span class="line">    <span class="built_in">print</span>(second)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    iterator = Iterator()</span><br><span class="line">    test_generative(iterator)</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/generative/4.png"></p>
+<ul>
+<li>以上看出我们可以通过自定义的迭代器对象进行解包</li>
+</ul>
+<h2 id="对函数参数进行解包"><a href="#对函数参数进行解包" class="headerlink" title="对函数参数进行解包"></a>对函数参数进行解包</h2><ul>
+<li>参考链接 <a target="_blank" rel="noopener" href="https://blog.csdn.net/S_o_l_o_n/article/details/102823490">https://blog.csdn.net/S_o_l_o_n/article/details/102823490</a></li>
+</ul>
+<p>一般来说，函数参数基本是以元组形式传入的，那么我们可以利用这一点进行解包操作。需要借助 *号来标记（字典为 **）</p>
+<ul>
+<li>参考 <a href="/2022/12/08/python/python%20%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/" title="python 函数详解">python 函数详解</a> 关于函数可变参数传参的细节</li>
+</ul>
+<h3 id="函数解包的特殊情况"><a href="#函数解包的特殊情况" class="headerlink" title="函数解包的特殊情况"></a>函数解包的特殊情况</h3><p>特别地，我们如果要对一个可迭代对象参数的传入进行解包，一样也可以用到 *号</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_unpack</span>(<span class="params">one, two, three</span>):</span><br><span class="line">    <span class="built_in">print</span>(one, two, three)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_unpack(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">    test_unpack(*[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">    test_unpack(*<span class="string">&quot;123&quot;</span>)</span><br><span class="line">    test_unpack(*(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">    test_unpack(*&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;)</span><br><span class="line">    test_unpack(*&#123;<span class="string">&quot;first&quot;</span>: <span class="number">1</span>, <span class="string">&quot;second&quot;</span>: <span class="number">2</span>, <span class="string">&quot;third&quot;</span>: <span class="number">3</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/generative/5.png"></p>
+<p>对自定义的迭代器对象解包</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Iterator</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__next__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> self.count &gt; <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">raise</span> StopIteration</span><br><span class="line">        self.count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> self.count</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_unpack</span>(<span class="params">one, two, three</span>):</span><br><span class="line">    <span class="built_in">print</span>(one, two, three)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    iterator = Iterator()</span><br><span class="line">    test_unpack(*iterator)</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/generative/6.png"></p>
+<h2 id="号其他用法"><a href="#号其他用法" class="headerlink" title="*号其他用法"></a>*号其他用法</h2><p>python 3.5 更新后可以使用 *号在可迭代对象序列内部进行解压。而且只能在内部，由于只能在内部，所以只支持 python 的一些基本数据类型如 元组，列表，字典，集合</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_unpack</span>(<span class="params">iterable</span>):</span><br><span class="line">    a = *iterable,  <span class="comment"># 等价于 (*tuple,)</span></span><br><span class="line">    b = *iterable, <span class="string">&quot;hello&quot;</span>  <span class="comment"># 等价于 (*iterable, 2)</span></span><br><span class="line">    c = [*iterable]</span><br><span class="line">    d = &#123;*iterable&#125;</span><br><span class="line">    <span class="built_in">print</span>(a)</span><br><span class="line">    <span class="built_in">print</span>(b)</span><br><span class="line">    <span class="built_in">print</span>(c)</span><br><span class="line">    <span class="built_in">print</span>(d)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_unpack((<span class="number">2</span>, <span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/generative/7.png"></p>
+<ul>
+<li>你会发现 a，b，c，d 变成了对应的序列。这就是下面所要讲解的压包</li>
+</ul>
+<h1 id="压包"><a href="#压包" class="headerlink" title="压包"></a>压包</h1><p>因为有解包，所以 python 同样提供压包方法。通常的压宝方式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_pack</span>():</span><br><span class="line">    a = <span class="number">1</span>,</span><br><span class="line">    b = <span class="number">1</span>, <span class="number">2</span></span><br><span class="line">    <span class="built_in">print</span>(a)</span><br><span class="line">    <span class="built_in">print</span>(b)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_pack()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/generative/8.png"></p>
+<ul>
+<li>上面的压包方法把传入的值作为元组类型压入变量中。</li>
+</ul>
+<h2 id="可迭代对象的压包"><a href="#可迭代对象的压包" class="headerlink" title="可迭代对象的压包"></a>可迭代对象的压包</h2><p>传入的值如果是一个可迭代对象那么需要对齐先用 *号解包再压包。类似于解包最后一个例子。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Iterator</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__next__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> self.count &gt; <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">raise</span> StopIteration</span><br><span class="line">        self.count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> self.count</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">pack</span>(<span class="params">_iterator</span>):</span><br><span class="line">    a = *_iterator,</span><br><span class="line">    <span class="built_in">print</span>(a)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    iterator = Iterator()</span><br><span class="line">    pack(iterator)</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/generative/9.png"></p>
+<h2 id="zip-方法的压包"><a href="#zip-方法的压包" class="headerlink" title="zip() 方法的压包"></a>zip() 方法的压包</h2><p>python 提供内置方法 <code>zip(*iterables)</code> 方法进行压包，并返回一个可迭代对象</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_pack</span>():</span><br><span class="line">    a = *([<span class="number">1</span>, <span class="number">2</span>], (<span class="number">3</span>, <span class="number">4</span>)),</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">        <span class="built_in">print</span>(i)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;*&quot;</span>*<span class="number">20</span>)</span><br><span class="line">    b = <span class="built_in">zip</span>([<span class="number">1</span>, <span class="number">2</span>], (<span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> b:</span><br><span class="line">        <span class="built_in">print</span>(j)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_pack()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/generative/10.png"></p>
+<ul>
+<li>以上我们可以看出 <code>zip()</code>方法能够实现分别对序列元素的单独压缩成一个个元组，并且返回一个可迭代对象</li>
+</ul>
+<h1 id="压包与解包的本质"><a href="#压包与解包的本质" class="headerlink" title="压包与解包的本质"></a>压包与解包的本质</h1><p>通过上面分析出 python 赋值方式本质就是解包与压包共存的方式，有解包一定有压包。</p>
+<p>最简单的赋值 a&#x3D;b，实则就是把 b 解包后传给 a 压包，这样实现了赋值。因此，交换赋值不再那么特殊，它本质就是解包和压包的一个过程。所以，python 赋值语句的一般用法就是  <code>a，b，\*args1，d = e，*args2, *args3 ......</code>。如果等号左边变量少，则把多余的变量传给 <code>args1</code>；如果右边的变量少，则解开包让右边的变量多于左边的变量数。如果全部解开还是达不到要求，那么一定会抛出 <code>ValueError</code> 异常。这就是 python 解包和压包的本质</p>
+<ul>
+<li>值得注意的是，等号左边永远最多只有一个 *号符，因为多了一定会有歧义</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_pack_and_unpack</span>():</span><br><span class="line">    a, *args, b = *[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">4</span>, *(<span class="number">5</span>, <span class="number">6</span>), <span class="number">7</span></span><br><span class="line">    <span class="built_in">print</span>(a, args, b)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        a, *args1, b, c, d, e, f, g, h = *[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">4</span>, *(<span class="number">5</span>, <span class="number">6</span>), <span class="number">7</span></span><br><span class="line">    <span class="keyword">except</span> ValueError <span class="keyword">as</span> v:</span><br><span class="line">        <span class="built_in">print</span>(v)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_pack_and_unpack()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/generative/11.png"></p>
+<ul>
+<li>以上我们可以看出当左边变量已经多出到即使全解压完毕后都容纳不下变量数后，就会抛出 ValueError 异常</li>
+</ul>
+<h1 id="解包压包的总结"><a href="#解包压包的总结" class="headerlink" title="解包压包的总结"></a>解包压包的总结</h1><ol>
+<li><p>对于作为参数传入的函数的 *号，它在函数内部一定是 tuple 类型的，无论传入的参数是什么类型。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_method</span>(<span class="params">a, b, *args</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(args))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_method(*[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">4</span>, (<span class="number">5</span>, <span class="number">6</span>), <span class="number">7</span>)</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/generative/12.png"></p>
+<ul>
+<li>以上翻译解包压包语言的含义是：<code>a，b，*args = *[1, 2, 3], 4, (5, 6), 7</code></li>
+<li>再以 <code>tuple(args)</code> 传入函数中</li>
+</ul>
+</li>
+<li><p>对于赋值语句中的 *号，它一定是以 list 类型传入进变量值得，无论给它赋值的是什么类型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_given</span>():</span><br><span class="line">    a, b, *args = *[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">4</span>, (<span class="number">5</span>, <span class="number">6</span>), <span class="number">7</span></span><br><span class="line">    <span class="built_in">print</span>(args)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(args))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_given()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/generative/13.png"></p>
+<ul>
+<li>以上翻译解包压包语言的含义一样是: <code>a，b，*args = *[1, 2, 3], 4, (5, 6), 7</code></li>
+<li>再用 <code>list(args)</code> 给 <code>args</code> 变为 list 类型</li>
+</ul>
+</li>
+</ol>
+<h1 id="对-for-循环重新认识"><a href="#对-for-循环重新认识" class="headerlink" title="对 for 循环重新认识"></a>对 for 循环重新认识</h1><p>通过以上解包压包的本质，for 循环我们知道 in 后面一定是 iterable 的对象，那 for 后面的变量数对后面 iterable 对象的限制是什么呢</p>
+<p>for 循环除了 <code>for i in iterable</code>，还能通过 <code>for k，v in iterable</code> ……如果这个 iterable 的每个元素本身也是 iterable 的，那么同样也是压包。因此对于 <code>for k，v in iterable</code> 循环，python 要求 后面的 iterable 每一个元素都是一个 iterable 类型的，并且该子 iterable 的元素数量要大于等于 k，v 等变量的数量</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_for</span>():</span><br><span class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> &#123;(<span class="number">1</span>, <span class="number">2</span>), (<span class="string">&quot;first&quot;</span>, <span class="string">&quot;second&quot;</span>)&#125;:</span><br><span class="line">        <span class="built_in">print</span>(k, v)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;*&quot;</span>*<span class="number">20</span>)</span><br><span class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> &#123;<span class="string">&quot;first&quot;</span>: <span class="number">1</span>&#125;.items():</span><br><span class="line">        <span class="built_in">print</span>(k, v)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">20</span>)</span><br><span class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> [[<span class="number">1</span>, <span class="number">2</span>], [<span class="string">&quot;first&quot;</span>, <span class="string">&quot;second&quot;</span>]]:</span><br><span class="line">        <span class="built_in">print</span>(k, v)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">20</span>)</span><br><span class="line">    <span class="keyword">for</span> a, *args, <span class="keyword">in</span> ([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], &#123;<span class="string">&quot;first&quot;</span>: <span class="number">1</span>, <span class="string">&quot;second&quot;</span>: <span class="number">2</span>&#125;):</span><br><span class="line">        <span class="built_in">print</span>(args)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_for()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/generative/14.png"></p>
+<ul>
+<li>以上我们明显看出每一个子元素都要求是 iterable的，并且每一个子元素的元素数一定要大于 for 给出的变量数</li>
+</ul>
+<h1 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h1><p>python 的一条算术语句皆视为表达式</p>
+<ul>
+<li>运算符参考 <a href="/2022/12/05/python/python%20%E8%BF%90%E7%AE%97%E7%AC%A6/" title="python 运算符">python 运算符</a></li>
+</ul>
+<h2 id="三元表达式"><a href="#三元表达式" class="headerlink" title="三元表达式"></a>三元表达式</h2><h3 id="产生背景"><a href="#产生背景" class="headerlink" title="产生背景"></a>产生背景</h3><p>python 的一种<a target="_blank" rel="noopener" href="https://zh.m.wikipedia.org/zh-sg/%E8%AF%AD%E6%B3%95%E7%B3%96">语法糖</a>。由于 python 并不支持三目运算符，所以 python 简化了 if else 判断语句形成三元表达式</p>
+<h3 id="语法结构"><a href="#语法结构" class="headerlink" title="语法结构"></a>语法结构</h3><p><em>表达式1 if 条件 else 表达式2</em></p>
+<p>其中 条件如果为 True，返回表达式1 的值；如果条件如 False，返回表达式2 的值</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">three_meta_expression</span>(<span class="params">max_, min_</span>):</span><br><span class="line">    result = max_ <span class="keyword">if</span> max_ &gt; min_ <span class="keyword">else</span> min_</span><br><span class="line">    <span class="built_in">print</span>(result)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    three_meta_expression(<span class="number">100</span>, <span class="number">99</span>)</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/generative/1.png"></p>
+<ul>
+<li>以上是一个返回最大值的函数，利用三元表达式快速获得最大值的结果</li>
+</ul>
+<h2 id="lambda-表达式"><a href="#lambda-表达式" class="headerlink" title="lambda 表达式"></a>lambda 表达式</h2><ul>
+<li>参考 <a href="/2022/12/08/python/python%20%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/" title="python 函数详解">python 函数详解</a> 有关匿名函数 lambda 表达式的有关信息</li>
+</ul>
+<h1 id="生成式"><a href="#生成式" class="headerlink" title="生成式"></a>生成式</h1><p>生成式是 python 提供的另外的一种语法糖，它能很好的解决 for 循环的返回变量的问题</p>
+<h2 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h2><p>列表生成式顾名思义是对列表 for 循环的一种简写</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p> new_list &#x3D; [表达式1 for 变量1，变量2 …. in iterable if 条件]</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_generative</span>():</span><br><span class="line">    _<span class="built_in">list</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">    _items = ([<span class="number">10</span>, <span class="number">5</span>], [<span class="number">20</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">    new_list = [i <span class="keyword">for</span> i <span class="keyword">in</span> _<span class="built_in">list</span> <span class="keyword">if</span> i &gt; <span class="number">1</span>]</span><br><span class="line">    <span class="built_in">print</span>(new_list)</span><br><span class="line"></span><br><span class="line">    new_items = [[i, j] <span class="keyword">for</span> i, j <span class="keyword">in</span> _items <span class="keyword">if</span> i + j &gt; <span class="number">20</span>]</span><br><span class="line">    <span class="built_in">print</span>(new_items)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_generative()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/generative/15.png"></p>
+<ul>
+<li>以上列表生成式语法糖极大简化了复杂的步骤有效地返回了想要的值</li>
+</ul>
+<h2 id="集合生成式"><a href="#集合生成式" class="headerlink" title="集合生成式"></a>集合生成式</h2><p>同列表生成式一样的格式</p>
+<ul>
+<li>注意由于集合的每一个元素都是要 hashable，那么表达式的值一定是不可变类型。</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_generative</span>():</span><br><span class="line">    _<span class="built_in">list</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">    _items = ([<span class="number">10</span>, <span class="number">5</span>], [<span class="number">20</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">    new_list = &#123;i <span class="keyword">for</span> i <span class="keyword">in</span> _<span class="built_in">list</span> <span class="keyword">if</span> i &gt; <span class="number">1</span>&#125;</span><br><span class="line">    <span class="built_in">print</span>(new_list)</span><br><span class="line"></span><br><span class="line">    new_items = &#123;(i, j) <span class="keyword">for</span> i, j <span class="keyword">in</span> _items <span class="keyword">if</span> i + j &gt; <span class="number">20</span>&#125;</span><br><span class="line">    <span class="built_in">print</span>(new_items)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        new_items = &#123;[i] <span class="keyword">for</span> i <span class="keyword">in</span> _<span class="built_in">list</span> <span class="keyword">if</span> i &gt; <span class="number">1</span>&#125;</span><br><span class="line">    <span class="keyword">except</span> TypeError <span class="keyword">as</span> t:</span><br><span class="line">        <span class="built_in">print</span>(t)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_generative()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/generative/16.png"></p>
+<h2 id="字典生成式"><a href="#字典生成式" class="headerlink" title="字典生成式"></a>字典生成式</h2><p>同列表生成式一样，但是注意 key 也是一定要是 hashable</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_generative</span>():</span><br><span class="line">    _items = ([<span class="number">10</span>, <span class="number">5</span>], [<span class="number">20</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">    new_items = &#123;i: j <span class="keyword">for</span> i, j <span class="keyword">in</span> _items <span class="keyword">if</span> i + j &gt; <span class="number">20</span>&#125;</span><br><span class="line">    <span class="built_in">print</span>(new_items)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(&#123;k: v <span class="keyword">for</span> k, v <span class="keyword">in</span> &#123;<span class="number">2</span>: <span class="number">3</span>&#125;.items()&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        new_items = &#123;i: <span class="number">5</span> <span class="keyword">for</span> i <span class="keyword">in</span> _items&#125;</span><br><span class="line">    <span class="keyword">except</span> TypeError <span class="keyword">as</span> t:</span><br><span class="line">        <span class="built_in">print</span>(t)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_generative()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/generative/17.png"></p>
+<h2 id="生成器生成式"><a href="#生成器生成式" class="headerlink" title="生成器生成式"></a>生成器生成式</h2><p>因为元组是不可变类型，那么 python 把以上类比出的元组生成式转为了生成器生成式</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_generative</span>():</span><br><span class="line">    _items = ([<span class="number">10</span>, <span class="number">5</span>], [<span class="number">20</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">    new_items = ([i, j] <span class="keyword">for</span> i, j <span class="keyword">in</span> _items <span class="keyword">if</span> i + j &gt; <span class="number">20</span>)</span><br><span class="line">    <span class="keyword">return</span> new_items</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    a = test_generative()</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(a))</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> a:</span><br><span class="line">        <span class="built_in">print</span>(item)</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/generative/18.png"></p>
+<h1 id="表达式和生成式的组合"><a href="#表达式和生成式的组合" class="headerlink" title="表达式和生成式的组合"></a>表达式和生成式的组合</h1><p>表达式就是会返回一个值，如果这个值是 iterable，那么就可以叠加进生成式中</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_generative</span>():</span><br><span class="line">    a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">    b = [<span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>]</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> [name <span class="keyword">for</span> name <span class="keyword">in</span> (a <span class="keyword">if</span> <span class="built_in">len</span>(a) &lt; <span class="built_in">len</span>(b) <span class="keyword">else</span> b) <span class="keyword">if</span> name &gt; <span class="number">2</span>]:</span><br><span class="line">        <span class="built_in">print</span>(i)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">20</span>)</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> (name <span class="keyword">for</span> name <span class="keyword">in</span> (a <span class="keyword">if</span> <span class="built_in">len</span>(a) &gt; <span class="built_in">len</span>(b) <span class="keyword">else</span> b) <span class="keyword">if</span> name &gt; <span class="number">2</span>):</span><br><span class="line">        <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test_generative()</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/generative/19.png"></p>
+<ul>
+<li>以上不难看出 item 遍历的是我们生成出来的各种生成式，生成式里面的我们遍历的是我们定义好的表达式。这样就完成了组合</li>
+</ul>
+
+        </article>
+        <section class="post-near">
+            <ul>
+                
+                    <li>上一篇: 看完啦 (つд⊂)</li>
+                
+                
+                    <li>下一篇: <a href="/2022/12/10/python/python%20%E7%B1%BB%E8%AF%A6%E8%A7%A3/">python 类详解</a></li>
+                
+            </ul>
+        </section>
+        
+            <section class="post-tags">
+            <a class="-none-link" href="/tags/python/" rel="tag">python</a><a class="-none-link" href="/tags/%E7%94%9F%E6%88%90%E5%BC%8F/" rel="tag">生成式</a><a class="-none-link" href="/tags/%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">表达式</a>
+            </section>
+        
+    
+        <section class="post-author">
+        
+            <figure class="author-avatar">
+                <img src="/images/images/myhead.png" alt="Junliangl" />
+            </figure>
+        
+            <div class="author-info">
+                <h4>Junliangl</h4>
+                <p style="color: #e6cfe6">我是一个软件测试工程师，感兴趣可以查看
+				    <a target="_blank" rel="noopener" href="https://github.com/junliangl">我的github</a>
+					 本站采用
+					<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>
+					 协议，转载请注明来源，谢谢!
+				</p>
+            </div>
+        </section>
+    
+    </div>
+</main>
+
+    <footer>
+    <div class="buttons">
+        <a class="to-top" href="#"></a>
+    </div>
+    <div class="wrap min">
+        <section class="widget">
+            <div class="row">
+                <div class="col-m-4">
+                    <h3 class="title-recent">最新文章：</h3>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/12/12/python/python%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E7%94%9F%E6%88%90%E5%BC%8F/">python 表达式和生成式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/10/python/python%20%E7%B1%BB%E8%AF%A6%E8%A7%A3/">python 类详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/10/python/python%20%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/">python 内存详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/10/python/python%20%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8/">python 迭代器和生成器</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/">python 函数详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/08/python/python%20%E9%A9%BB%E7%95%99%E6%9C%BA%E5%88%B6/">python 驻留机制</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-date">历史：</h3>
+                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-tags">标签云：</h3>
+                    <a href="/tags/continer/" style="font-size: 1020;">continer</a> <a href="/tags/pytest/" style="font-size: 1020;">pytest</a> <a href="/tags/python/" style="font-size: 2020;">python</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%9C%BA%E5%88%B6/" style="font-size: 1020;">内存机制</a> <a href="/tags/%E5%87%BD%E6%95%B0/" style="font-size: 1020;">函数</a> <a href="/tags/%E5%8F%98%E9%87%8F/" style="font-size: 1020;">变量</a> <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 1020;">基本数据类型</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 1020;">字符串</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" style="font-size: 1520;">常用方法</a> <a href="/tags/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B/" style="font-size: 1020;">开发模型</a> <a href="/tags/%E5%BE%AA%E7%8E%AF/" style="font-size: 1020;">循环</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 1020;">方法</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" style="font-size: 1520;">测试工具</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" style="font-size: 1020;">测试用例</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1/" style="font-size: 1020;">测试用例设计</a> <a href="/tags/%E7%94%9F%E6%88%90%E5%BC%8F/" style="font-size: 1020;">生成式</a> <a href="/tags/%E7%B1%BB/" style="font-size: 1020;">类</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" style="font-size: 1020;">虚拟环境</a> <a href="/tags/%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 1020;">表达式</a> <a href="/tags/%E8%B4%A8%E9%87%8F%E6%A8%A1%E5%9E%8B/" style="font-size: 1020;">质量模型</a>
+                </div>
+            </div>
+        </section>
+        <section class="sub-footer">
+            <p>© 2022 <a href="/">onepiece</a>. All Rights Reserved. Theme By <a href="https://github.com/Dreamer-Paul/Hingle" target="_blank" rel="nofollow">Hingle</a>.</p>
+        </section>
+    </div>
+</footer>
+
+
+<script src="/static/kico.js"></script>
+<script src="/static/hingle.js"></script>
+
+
+<script>var hingle = new Paul_Hingle({"copyright":true,"night":true});</script>
+
+  </body>
+</html>
