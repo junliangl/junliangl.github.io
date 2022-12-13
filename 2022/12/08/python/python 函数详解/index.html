@@ -167,8 +167,28 @@
 <ul>
 <li>以上不难看出可以不用给默认参数传值，也可以给其中的默认参数传值。传值可以使用位置参数和关键字参数混搭的模式，但是依旧要遵守混搭规则。</li>
 </ul>
+<h3 id="默认参数的注意点"><a href="#默认参数的注意点" class="headerlink" title="默认参数的注意点"></a><em>默认参数的注意点</em></h3><p>默认参数由于是函数加载时就初始化默认参数值的，这点需要注意。这就导致如果默认参数是可变类型的（列表，字典等），那么初始化的时候默认参数会共享一个内存地址。这就导致后续改变默认参数的行为会影响到其他对象</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Default</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name = [<span class="string">&quot;Jack&quot;</span>]</span>):</span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    default1 = Default()</span><br><span class="line">    default2 = Default()</span><br><span class="line">    default3 = Default([<span class="string">&quot;Messi&quot;</span>])</span><br><span class="line">    <span class="built_in">print</span>(default1.name, default2.name, default3.name)</span><br><span class="line">    default1.name.append(<span class="string">&quot;Nance&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(default1.name, default2.name, default3.name)</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/method/54.png"></p>
+<ul>
+<li><p>以上我们看到如果不传入参数给默认参数的话，default1.name 和 default2.name 使用的同一个内存空间，这样当 default1.name 改变时会使得 default2.name 一起改变。但是如果给默认参数传值不会引用同一个内存空间，以上具体原因请参考 <a href="/2022/12/10/python/python%20%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/" title="python 内存详解">python 内存详解</a> 中有关可变对象的内容。</p>
+</li>
+<li><p>所以尽量不要使用可变类型当做默认参数。其中 pycharm 也会人性化提示</p>
+<p><img src="/images/python/method/55.png"></p>
+</li>
+</ul>
+<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>如果我们实在想传一个默认参数为可变对象的时候，可以利用设计模式来实现</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">default</span>(<span class="params">_default = <span class="literal">None</span></span>):</span><br><span class="line">    <span class="keyword">if</span> _default <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        _default = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> _default, <span class="built_in">id</span>(_default)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    default1 = default()</span><br><span class="line">    default2 = default()</span><br><span class="line">    <span class="built_in">print</span>(default1)</span><br><span class="line">    <span class="built_in">print</span>(default2)</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<p><img src="/images/python/method/56.png"></p>
+<ul>
+<li>这样就解决了默认参数的缺陷，但是前提是你要知道你默认参数要传什么值</li>
+</ul>
 <h3 id="默认参数的混搭"><a href="#默认参数的混搭" class="headerlink" title="默认参数的混搭"></a>默认参数的混搭</h3><p>默认参数依旧可以和之前的位置参数和关键字参数以及强制关键字参数混搭</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def test(arg1, arg2, arg3, arg4=4):</span><br><span class="line">    print(f&quot;第一个参数是:&#123;arg1&#125;&quot;)</span><br><span class="line">    print(&quot;---------------------&quot;)</span><br><span class="line">    print(f&quot;第二个参数是:&#123;arg2&#125;&quot;)</span><br><span class="line">    print(&quot;---------------------&quot;)</span><br><span class="line">    print(f&quot;第三个参数是:&#123;arg3&#125;&quot;)</span><br><span class="line">    print(&quot;---------------------&quot;)</span><br><span class="line">    print(f&quot;第四个参数是:&#123;arg4&#125;&quot;)</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    test(1, arg2=2, arg3=3, arg4=40)</span><br><span class="line">    print(&quot;**********************&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>(<span class="params">arg1, arg2, arg3, arg4=<span class="number">4</span></span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;第一个参数是:<span class="subst">&#123;arg1&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;---------------------&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;第二个参数是:<span class="subst">&#123;arg2&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;---------------------&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;第三个参数是:<span class="subst">&#123;arg3&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;---------------------&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;第四个参数是:<span class="subst">&#123;arg4&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test(<span class="number">1</span>, arg2=<span class="number">2</span>, arg3=<span class="number">3</span>, arg4=<span class="number">40</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;**********************&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>返回</p>
 <p><img src="/./images/python/method/11.png"></p>
@@ -196,7 +216,7 @@
 <p><img src="/./images/python/method/15.png"></p>
 </li>
 </ul>
-<h3 id="可变位置参数（又叫可变参数）"><a href="#可变位置参数（又叫可变参数）" class="headerlink" title="可变位置参数（又叫可变参数）"></a>可变位置参数（又叫可变参数）</h3><p>有时候我们不确定具体传参时某些形参需要传多少个，那么我们就引入可变位置参数</p>
+<h3 id="可变位置参数"><a href="#可变位置参数" class="headerlink" title="可变位置参数"></a>可变位置参数</h3><p>有时候我们不确定具体传参时某些形参需要传多少个，那么我们就引入可变位置参数（可变参数）</p>
 <p>使用方式：在定义形参的名字前写上 *</p>
 <p><code>def test(*args)</code></p>
 <p>该可变位置参数通过把我们实际传递的实参用一个元组 args 来接受，这样完成可变确定的参数传值。当然，args也可以是一个可迭代对象，具体参考 <a href="/2022/12/12/python/python%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E7%94%9F%E6%88%90%E5%BC%8F/" title="python 表达式和生成式">python 表达式和生成式</a> 中关于 *号解包压包的有关内容</p>
@@ -263,25 +283,21 @@
 </ul>
 <h3 id="可变关键字参数的混搭"><a href="#可变关键字参数的混搭" class="headerlink" title="可变关键字参数的混搭"></a>可变关键字参数的混搭</h3><p>可变关键字参数的混搭顺序，一定是在所有参数类型最后再定义，理由很简单：因为是用关键字参数进行传递，那么不能在默认参数和位置参数之前，这两者就包含了可变位置参数。特殊地依旧不能在强制关键字之前定义，因为不知道后面的关键字参数是否是传给 kwargs，还是本身</p>
 <p><img src="/./images/python/method/24.png"></p>
-<h3 id="强制位置参数（3-8新特性）"><a href="#强制位置参数（3-8新特性）" class="headerlink" title="强制位置参数（3.8新特性）"></a>强制位置参数（3.8新特性）</h3><p>用法 &#x2F;</p>
+<h3 id="强制位置参数"><a href="#强制位置参数" class="headerlink" title="强制位置参数"></a>强制位置参数</h3><p>用法 &#x2F;   这是 python 3.8 的新特性</p>
 <p>强制位置表示在   &#x2F; 之前一定要使用位置参数，不接受使用关键字参数</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>(<span class="params">arg1, arg2=<span class="number">2</span>, /, arg3=<span class="number">3</span></span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;第一个参数是:<span class="subst">&#123;arg1&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;---------------------&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;第二个参数是:<span class="subst">&#123;arg2&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;---------------------&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;第三个参数是:<span class="subst">&#123;arg3&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test(<span class="number">10</span>, <span class="number">20</span>, arg3=<span class="number">30</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;**********************&quot;</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        test(arg1=<span class="number">10</span>, arg2=<span class="number">20</span>, arg3=<span class="number">30</span>)</span><br><span class="line">    <span class="keyword">except</span> TypeError <span class="keyword">as</span> t:</span><br><span class="line">        <span class="built_in">print</span>(t)</span><br></pre></td></tr></table></figure>
 
 <p>返回</p>
 <p><img src="/./images/python/method/25.png"></p>
 <ul>
-<li><p>以上不难看出如果用关键字参数给 &#x2F; 之前的参数赋值，那么会报错</p>
-</li>
-<li><p>强制位置参数不能在可变位置参数之后定义</p>
-<p><img src="/./images/python/method/26.png"></p>
-</li>
-<li><p>强制位置参数不能在可变关键字参数之后定义</p>
-<p><img src="/./images/python/method/27.png"></p>
-</li>
-<li><p>强制位置参数很明显应该放在强制关键字参数之前定义，否则引发矛盾</p>
-<p><img src="/./images/python/method/28.png"></p>
-</li>
+<li>以上不难看出如果用关键字参数给 &#x2F; 之前的参数赋值，那么会报错</li>
 </ul>
+<p>强制位置参数不能在可变位置参数之后定义</p>
+<p><img src="/./images/python/method/26.png"></p>
+<p>强制位置参数不能在可变关键字参数之后定义</p>
+<p><img src="/./images/python/method/27.png"></p>
+<p>强制位置参数很明显应该放在强制关键字参数之前定义，否则引发矛盾</p>
+<p><img src="/./images/python/method/28.png"></p>
 <h3 id="解包（开包）"><a href="#解包（开包）" class="headerlink" title="解包（开包）"></a>解包（开包）</h3><p>python 可以通过 * 对列表或元组进行解包，通过 ** 对字典进行解包</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">    tuple1 = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">    dict1 = &#123;<span class="string">&quot;first&quot;</span>: <span class="number">1</span>, <span class="string">&quot;second&quot;</span>: <span class="number">2</span>, <span class="string">&quot;third&quot;</span>: <span class="number">3</span>&#125;</span><br><span class="line">    <span class="built_in">print</span>(*list1)</span><br><span class="line">    <span class="built_in">print</span>(*tuple1)</span><br><span class="line">    <span class="built_in">print</span>(*dict1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    test() </span><br></pre></td></tr></table></figure>
 
